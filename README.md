@@ -1,24 +1,33 @@
-# Touchline Binder PWA v0.4
+# Touchline v0.5.1
 
-## Practice Builder
-- Five built-in coaching themes with descriptions.
-- Custom theme option.
-- Drag-and-drop practice playlist on desktop and touch devices.
-- Move Up and Move Down buttons remain available as a reliable fallback.
-- Expand drills inside the playlist, adjust session duration, and monitor total practice time.
+## Purpose
+Touchline is a local-first Progressive Web App (PWA) designed to help youth soccer coaches stay organized before, during, and after practices and matches.
 
-## New finishing and end-of-practice games
-- Crossbar Challenge
-- World Cup Knockout
-- Rapid Fire Finishing
-- Numbers Finishing Game
-- Six-Second Shootout
-- Goalkeeper Wars
-- Last Goal Wins
+> **Touchline is a coaching assistant, not a coaching replacement.**
 
-These drills include setup, how to play, coaching points, mistakes, progressions, and regressions.
+The goal is to keep the coach's eyes on the players—not on a screen.
 
-## Deployment
-Upload the contents of this folder to the repository root, commit, and allow GitHub Pages a few minutes to deploy.
+## Current Features
+- Dashboard with roster status
+- Player profiles
+- Events
+- Practice Mode
+- Game Day Mode
+- Team settings
+- Local storage (offline capable)
+- JSON import/export
+- Preloaded BSSC U12 Boys B roster (where data was available)
 
-This version intentionally uses a fresh local-storage key and does not migrate v0.3 data.
+## Installation
+1. Replace your GitHub Pages files with the contents of this release.
+2. Commit and push to GitHub.
+3. Open your GitHub Pages URL in Chrome.
+4. Choose **Install App** when prompted.
+
+## Data
+All information is stored locally in the browser unless you export a backup.
+
+## Project Status
+Prototype / Pre-Alpha
+
+This version is intended for real sideline testing and iterative improvement.
