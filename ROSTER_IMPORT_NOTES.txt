@@ -1,0 +1,14 @@
+Touchline v0.5.1 roster import notes
+
+Matched from last season's rosters:
+Landon Cartier, Grayson Santoro, Colin Nichol, Luca Bertagnoli, Finnley Clark,
+Jacob Madara, Brody Waite, Derrick Lopez, Jaxon McDonough, Carson Pauer,
+Hunter Harrington, and Ezra Hall.
+
+Not found:
+Jude Budge, Duke Kitchell, Paul Roden.
+
+Conflicts/discrepancies:
+- Colin Nichol and Finnley Clark both have jersey #17.
+- Colin's surname was spelled “Nicol” on last season's roster.
+- Derrick's first name was spelled “Derek” on last season's roster.

@@ -1,186 +1,120 @@
-const initialData={
- meta:{teamName:'BSSC U12 Boys B',season:'2026–27',version:'0.4'},
- players:[
-  P('Brody Waite','34','Angela Waite','Parent','angela.waite.aw@gmail.com','','Jason Waite','Parent','',''),
-  P('Carson Pauer','13','Chris Pauer','Father','cpauer@gmail.com','','Kate Pauer','Mother','kaitling1987@gmail.com',''),
-  P('Colin Nichol','','Ryan Larson','Parent','ryan.larson@bkwschools.org','','','','',''),
-  P('Derrick Lopez','21','Dan Lopez','Parent','','','Kelly Lopez','Parent','maddiec95@yahoo.com',''),
-  P('Duke Kitchell','','Kory Kitchell','Mother','newmka62@yahoo.com','518-588-3499','Matthew Kitchell','Father','mpkitch7@aol.com','518-577-0224'),
-  P('Ezra Hall','5','Dylan Hall','Father','dhallrmadrid@gmail.com','','','','',''),
-  {...P('Finnley Clark','17','Tracy Clark','Parent','tracylclark24@gmail.com','','','','',''),notes:'Returning U12'},
-  P('Grayson Santoro','23','Katy Santoro','Mother','asantoro2@nycap.rr.com','','','','',''),
-  P('Hunter Harrington','27','Kaliena Stanley','Parent','kalienamarie@yahoo.com','','Mitchell Harrington','Parent','',''),
-  P('Jacob Madara','10','Juliann Madara','Mother','jwmadara@yahoo.com','','Nick Madara','Father','nickmadara83@gmail.com',''),
-  {...P('Jaxon McDonough','11','Tobey Snyder','Father','tobeysnyder@hotmail.com','518-926-8974','','','',''),teamReach:false,notes:'TeamReach invite pending'},
-  P('Jude Budge','','Michelle Greene','Mother','budgemm@gmail.com','','Dustin Budge','Father','',''),
-  P('Landon Cartier','14','Laura Cartier','Mother','lauranizolek@gmail.com','518-796-9686','Bill Cartier','Father','WilfredCartierIV@gmail.com','518-926-8310'),
-  P('Luca Bertagnoli','20','Tony Bertagnoli','Father','tonybert@gmail.com','','Shannon Bertagnoli','Mother','',''),
-  P('Paul Roden','','Kate Roden','Mother','11goldens.toga@gmail.com','','','','','')
- ],
- events:[],attendance:[],practices:[],matches:[],development:[],
- drills:[
-  D('4v1 Rondo','First touch, scanning, support',12,'5','Cones, balls','Create a 10x10-yard square. Four attackers work outside with one defender inside.','Attackers keep possession with one- or two-touch play. Rotate the defender after a win, mistake, or set interval.','Encourage scanning before the ball arrives. Adjust the grid to keep the challenge appropriate.'),
-  D('5v2 Rondo','Support angles and speed of play',12,'7','Cones, balls','Create a 12x12-yard grid. Five attackers outside and two defenders inside.','Possession earns a point after a set number of passes. Defenders switch after winning the ball.','Coach support angles, cover shadows, and immediate reaction after turnover.'),
-  D('Directional 5v3 Rondo','Progression and transition',15,'8','Cones, balls, target gates','Use a 15x20-yard rectangle with a target gate or target player at each end.','Score by progressing from one target to the other. Defenders attack the opposite target after winning possession.','Coach body shape, scanning, and when to play forward versus retain possession.'),
-  D('Transition Rondo 4v2 to 4v2','Reaction after turnover',16,'12','Cones, pinnies, balls','Place two adjacent rondo grids. Four attackers and two defenders are active in one grid.','When defenders win the ball, transfer it to the other grid and change roles immediately.','Demand a fast mental transition and communication before the ball arrives.'),
-  D('4v4+3 Positional Game','Playing through pressure',18,'11','Cones, pinnies, balls','Create a rectangle. Four per team plus three neutrals centrally and on end lines.','Neutrals play with possession. Score by connecting from one end neutral to the other.','Encourage width, depth, third-player combinations, and scanning away from the ball.'),
-  D('Ball Mastery Box','Comfort on the ball',10,'Any','One ball per player, cones','Mark a 20x20-yard box. Every player has a ball.','Cycle through toe taps, foundations, pull-pushes, inside-outside touches, sole rolls, and turns. Finish with free movement.','Keep instruction short and touches high. Challenge players to lift their eyes.'),
-  D('Gates Dribbling Challenge','Ball movement and change of direction',12,'Any','Cone gates, one ball per player','Scatter small cone gates throughout a grid.','Players score by dribbling through gates. Progress to weaker foot, required turns, or partner competition.','Reward close control, awareness, and change of pace rather than pure speed.'),
-  D('Passing Through Traffic','Passing accuracy and receiving',14,'8-16','Balls, cones','Create several passing lanes that cross through a central traffic area.','Pairs pass and move through assigned lanes while scanning for other balls and players. Add one-touch combinations.','Coach communication, weight of pass, and receiving across the body.'),
-  D('Third-Player Movement','Off-ball support and combination play',15,'6-12','Cones, balls','Arrange players in triangles or diamonds with clear passing points.','A passes to B, B lays off to C, and a third player moves into the next space. Progress to opposition.','Avoid making it robotic. Add choices and passive defenders once understood.'),
-  D('1v1 Escape Gates','Change of pace and direction',14,'6-14','Cones, balls, pinnies','Create small channels with two escape gates at the far end.','Attacker beats the defender and exits either gate. Defender scores by winning and dribbling over the start line.','Coach attacking the defender, selling the fake, and accelerating after the move.'),
-  D('Transition Game','Immediate reaction after turnover',20,'10-14','Pinnies, cones, goals','Use a small-sided field with two goals and spare balls ready around the outside.','Award bonus points for scoring quickly after a regain or recovering possession within five seconds.','Keep the game flowing. Use short interventions and let the chaos teach decisions.'),
-  D('Crossbar Challenge','Ball striking accuracy and team energy',8,'Any','Balls, full-size goal','Players line up 18-25 yards from goal with one ball each or a shared supply.','Players take turns trying to strike the crossbar. Play individually, in teams, or as a race to a set number of hits.','Keep the line moving quickly. Adjust distance by age and ability. Reward clean technique over power.','Finishing','U10-U14','Plant foot beside the ball, lock the ankle, strike through the center or lower half, and follow through toward the target.','Leaning back, swinging only from the knee, and waiting too long between turns.','Move farther away, require weaker foot, or award bonus points for a first-time strike.','Move closer, allow a bounce, or use the goal frame as a broader target.'),
-  D('World Cup Knockout','Finishing under pressure and rebound reactions',12,'6-16','Balls, one goal, goalkeeper optional','Use the penalty area or a smaller scoring zone. Players compete individually or in pairs.','Serve a ball into play. Everyone attacks the same goal. The first player or pair to score advances; the last remaining player or pair is eliminated each round until a champion remains.','Keep service immediate and safe. Encourage rebounds, quick decisions, and positive finishing rather than waiting for the perfect shot.','Finishing','U10-U14','Create a shooting window quickly, follow every shot, and react first to loose balls.','Crowding the ball, stopping after shooting, and taking extra touches when the goal is open.','Require first-time finishes, weaker foot, or start with a defender recovering.','Use pairs, enlarge the area, or allow an uncontested first touch.'),
-  D('Rapid Fire Finishing','Fast repetitions and follow-up rebounds',10,'6-15','Many balls, goal, goalkeeper','Set two shooting lines at the top corners of the penalty area. Place a server or ball supply centrally.','Players alternate shots quickly. After shooting, they follow for a rebound, retrieve a ball, and join the opposite line.','Serve the next ball as soon as the goal area is clear. Focus on rhythm, accuracy, and immediate rebound movement.','Finishing','U10-U14','Prepare the body early, choose the corner before contact, and follow the shot.','Standing in the goalmouth, shooting without looking, and striking every ball at maximum power.','Add a combination pass, passive defender, or one-touch finish.','Allow a settling touch or move the shooting point closer.'),
-  D('Numbers Finishing Game','Recognition, competition, and finishing',12,'8-16','Pinnies, balls, two goals','Split into two teams lined up beside the coach. Number players on each team. Use one or two goals depending on space.','Call one or more numbers and serve a ball. Called players enter for a 1v1, 2v2, or 3v3 and play until a goal, ball out, or short time limit.','Vary the numbers to create overloads. Restart immediately to keep intensity high.','Finishing','U10-U14','Attack space quickly, recognize numerical advantage, and finish before defenders recover.','Slow entry, bunching together, and passing up an open shot.','Call uneven numbers, add a recovery defender, or award two points for a one-touch goal.','Call equal numbers, provide a favorable service, or use larger goals.'),
-  D('Six-Second Shootout','Quick decisions and composed finishing',10,'6-16','Balls, goal, goalkeeper, cones','Mark a starting line 20-25 yards from goal. One attacker begins with a ball and one defender starts several yards behind or to the side.','On the signal, the attacker has six seconds to score while the defender recovers. Rotate roles after every attempt.','Count down loudly. Adjust the defender advantage so the attacker feels pressure but still has a realistic chance.','Finishing','U10-U14','First touch forward, get the head up early, use the body to protect the ball, and finish before pressure arrives.','Dribbling directly at the goalkeeper, taking too many touches, and ignoring the defender angle.','Reduce the time, add a second defender, or require weaker foot.','Increase time, move defender farther away, or remove the defender.'),
-  D('Goalkeeper Wars','Long-range striking, handling, and reactions',10,'4-12','Two small goals or cone goals, balls','Create a narrow field with a goal at each end. Players work as opposing goalkeepers or pairs of goalkeepers.','Players throw, roll, punt, or strike the ball toward the opposite goal according to the chosen rules. A save immediately becomes the next attack.','Set safe striking rules and suitable distance. This is an energetic closer that also develops handling and quick distribution.','Finishing','U10-U14','Accurate distribution, ready position after releasing, and quick reaction to rebounds.','Turning away after a shot, unsafe high volleys at close range, and excessive power without accuracy.','Allow only ground strikes, require weaker foot, or play doubles.','Move goals closer or allow throws and rolls.'),
-  D('Last Goal Wins','Fast small-sided finishing game',10,'8-16','Pinnies, balls, two goals','Set a small field with two teams and multiple balls ready on the touchline.','Play continuous small-sided soccer. Announce a short final window; the team scoring the final goal before time expires wins regardless of the earlier score.','Use this sparingly so effort remains meaningful. Feed balls quickly and celebrate positive attacking decisions.','Small-Sided Game','U10-U14','Attack immediately when space opens, support rebounds, and transition quickly after losing the ball.','Players stopping because they are ahead, forcing low-percentage shots, and failing to recover after turnovers.','Award the last two goals, require a one-touch finish, or add neutral players.','Use larger goals or numerical overloads for the attacking team.')
- ],
- equipment:[{id:uid(),item:'Soccer balls',qty:15,status:'Good',notes:''},{id:uid(),item:'Pinnies',qty:18,status:'Good',notes:''},{id:uid(),item:'Cones',qty:40,status:'Good',notes:''}]
-};
-function uid(){return crypto.randomUUID()}
-function P(name,jersey,n1,r1,e1,p1,n2,r2,e2,p2){return{id:uid(),name,jersey,dob:'',registered:false,teamReach:true,parent1:{name:n1,relationship:r1,email:e1,phone:p1},parent2:{name:n2,relationship:r2,email:e2,phone:p2},medical:'',notes:''}}
-function D(name,theme,minutes,players,equipment,setup,play,comments,category='General',age='U10-U14',coachingPoints='',mistakes='',progressions='',regressions=''){return{id:uid(),name,theme,minutes,players,equipment,setup,play,comments,category,age,coachingPoints,mistakes,progressions,regressions}}
-let data=loadData(),deferredPrompt=null,tempPracticeDrills=[],drillSearch='',drillCategory='All';
-function loadData(){const r=localStorage.getItem('touchlineBinderDataV04');if(!r){localStorage.setItem('touchlineBinderDataV04',JSON.stringify(initialData));return structuredClone(initialData)}try{return JSON.parse(r)}catch{return structuredClone(initialData)}}
-function save(){localStorage.setItem('touchlineBinderDataV04',JSON.stringify(data));renderAll()}
-function esc(s=''){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
-function fmtDate(v){if(!v)return'TBD';return new Date(v+'T00:00:00').toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'})}
-function eventCountdown(v){if(!v)return'Date TBD';const today=new Date();today.setHours(0,0,0,0);const d=new Date(v+'T00:00:00');const days=Math.round((d-today)/86400000);if(days===0)return'Today';if(days===1)return'Tomorrow';if(days>1)return`In ${days} days`;return`${Math.abs(days)} days ago`}
-function eventTypeLabel(t){return({practice:'Practice',league:'League Game',indoor:'Indoor',tournament:'Tournament',scrimmage:'Scrimmage'}[t]||t)}
-function mapsUrl(x){return'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(x)}
-function cleanPhone(x=''){return x.replace(/[^\d+]/g,'')}
-function renderAll(){teamLabel.textContent=`${data.meta.teamName} • ${data.meta.season}`;renderDashboard();renderPlayers();renderEvents();renderAttendance();renderPractice();renderMatches();renderDevelopment();renderEquipment();renderSettings()}
+
+const DEFAULT_PLAYERS = [{"id": "landon-cartier", "first": "Landon", "last": "Cartier", "jersey": "14", "email": "lauranizolek@gmail.com", "phone": "518-796-9686", "contactName": "Laura Cartier", "relationship": "Parent/Guardian", "notes": "", "medical": ""}, {"id": "jude-budge", "first": "Jude", "last": "Budge", "jersey": "", "email": "", "phone": "", "contactName": "", "relationship": "Parent/Guardian", "notes": "", "medical": ""}, {"id": "grayson-santoro", "first": "Grayson", "last": "Santoro", "jersey": "23", "email": "asantoro2@nycap.rr.com", "phone": "518-495-2252", "contactName": "Katy Santoro", "relationship": "Parent/Guardian", "notes": "", "medical": ""}, {"id": "colin-nichol", "first": "Colin", "last": "Nichol", "jersey": "17", "email": "ryan.larson@bkwschools.org", "phone": "518-429-7012", "contactName": "", "relationship": "Parent/Guardian", "notes": "Last name appeared as \u201cNicol\u201d on last season\u2019s roster.", "medical": ""}, {"id": "luca-bertagnoli", "first": "Luca", "last": "Bertagnoli", "jersey": "20", "email": "tonybert@gmail.com", "phone": "714-345-7645", "contactName": "", "relationship": "Parent/Guardian", "notes": "", "medical": ""}, {"id": "finnley-clark", "first": "Finnley", "last": "Clark", "jersey": "17", "email": "tracylclark24@gmail.com", "phone": "", "contactName": "", "relationship": "Parent/Guardian", "notes": "Jersey #17 conflicts with Colin Nichol.", "medical": ""}, {"id": "jacob-madara", "first": "Jacob", "last": "Madara", "jersey": "10", "email": "jwmadara@yahoo.com", "phone": "518-330-2899", "contactName": "", "relationship": "Parent/Guardian", "notes": "", "medical": ""}, {"id": "brody-waite", "first": "Brody", "last": "Waite", "jersey": "34", "email": "angela.waite.aw@gmail.com", "phone": "518-859-5787", "contactName": "", "relationship": "Parent/Guardian", "notes": "", "medical": ""}, {"id": "derrick-lopez", "first": "Derrick", "last": "Lopez", "jersey": "21", "email": "maddiec95@yahoo.com", "phone": "518-338-8411", "contactName": "", "relationship": "Parent/Guardian", "notes": "First name appeared as \u201cDerek\u201d on last season\u2019s roster.", "medical": ""}, {"id": "jaxon-mcdonough", "first": "Jaxon", "last": "McDonough", "jersey": "11", "email": "tobeysnyder@hotmail.com", "phone": "518-926-8974", "contactName": "", "relationship": "Parent/Guardian", "notes": "", "medical": ""}, {"id": "carson-pauer", "first": "Carson", "last": "Pauer", "jersey": "13", "email": "kaitling1987@gmail.com", "phone": "215-680-0765", "contactName": "Kate Pauer", "relationship": "Parent/Guardian", "notes": "", "medical": ""}, {"id": "duke-kitchell", "first": "Duke", "last": "Kitchell", "jersey": "", "email": "", "phone": "", "contactName": "", "relationship": "Parent/Guardian", "notes": "", "medical": ""}, {"id": "hunter-harrington", "first": "Hunter", "last": "Harrington", "jersey": "27", "email": "kalienamarie@yahoo.com", "phone": "518-379-7678", "contactName": "", "relationship": "Parent/Guardian", "notes": "", "medical": ""}, {"id": "ezra-hall", "first": "Ezra", "last": "Hall", "jersey": "5", "email": "dhallrmadrid@gmail.com", "phone": "", "contactName": "", "relationship": "Parent/Guardian", "notes": "", "medical": ""}, {"id": "paul-roden", "first": "Paul", "last": "Roden", "jersey": "", "email": "", "phone": "", "contactName": "", "relationship": "Parent/Guardian", "notes": "", "medical": ""}];
+const KEY='touchline-v051';
+let installPrompt=null;
+let timer=null, elapsed=0, timerRunning=false;
+
+function freshState(){
+  return {
+    team:{name:'BSSC U12 Boys B',season:'2026–27',primary:'White',secondary:'Black',shorts:'Black',socks:'Black'},
+    players:structuredClone(DEFAULT_PLAYERS),
+    events:[],
+    aars:[],
+    score:{us:0,them:0},
+    notes:[]
+  };
+}
+let state=load();
+function load(){
+  try{
+    const saved=JSON.parse(localStorage.getItem(KEY));
+    if(saved) return saved;
+  }catch(e){}
+  const s=freshState(); localStorage.setItem(KEY,JSON.stringify(s)); return s;
+}
+function save(){localStorage.setItem(KEY,JSON.stringify(state));}
+function esc(s=''){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+function nav(view){
+  document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));
+  document.getElementById(view).classList.add('active');
+  document.querySelectorAll('.bottom-nav button').forEach(x=>x.classList.toggle('active',x.dataset.view===view));
+  render();
+}
+document.querySelectorAll('.bottom-nav button').forEach(b=>b.onclick=()=>nav(b.dataset.view));
+
+function conflicts(){
+  const map={};
+  state.players.forEach(p=>{if(p.jersey)(map[p.jersey]??=[]).push(p.first+' '+p.last)});
+  return Object.entries(map).filter(([,v])=>v.length>1);
+}
+function missing(){
+  return state.players.filter(p=>!p.jersey||!p.email||!p.phone);
+}
 function renderDashboard(){
- const upcoming=[...data.events].filter(e=>!e.date||new Date(e.date+'T23:59:59')>=new Date()).sort((a,b)=>(a.date||'9999').localeCompare(b.date||'9999')),next=upcoming[0],nums={};
- data.players.filter(p=>p.jersey).forEach(p=>(nums[p.jersey]??=[]).push(p.name));const conflicts=Object.entries(nums).filter(x=>x[1].length>1),out=[];
- const unreg=data.players.filter(p=>!p.registered).length,missing=data.players.filter(p=>!p.jersey).length;
- if(unreg)out.push(`<p><span class="badge warn">${unreg}</span> players awaiting official registration.</p>`);
- if(missing)out.push(`<p><span class="badge warn">${missing}</span> players still need jersey numbers.</p>`);
- conflicts.forEach(([n,names])=>out.push(`<p><span class="badge danger">#${esc(n)}</span> ${esc(names.join(' and '))}</p>`));
- data.players.filter(p=>!p.teamReach).forEach(p=>out.push(`<p><span class="badge warn">TeamReach</span> ${esc(p.name)} pending.</p>`));
- dashboard.innerHTML=`<div class="grid"><div class="card"><div class="muted">Players</div><div class="stat">${data.players.length}</div></div><div class="card"><div class="muted">Officially registered</div><div class="stat">${data.players.filter(p=>p.registered).length}/${data.players.length}</div></div><div class="card"><div class="muted">Upcoming events</div><div class="stat">${upcoming.length}</div></div>${conflicts.length?`<div class="card"><div class="muted">Jersey conflicts</div><div class="stat">${conflicts.length}</div></div>`:''}</div><div class="card"><div class="row"><h2>Next event</h2>${next?`<button class="secondary tiny" onclick="openAttendanceForEvent('${next.id}')">Attendance</button>`:''}</div>${next?`<h3>${esc(next.title||eventTypeLabel(next.type))}</h3><p><strong>${eventCountdown(next.date)}</strong><br>${fmtDate(next.date)} ${esc(next.time||'')}<br>${next.location?`<a class="location-link" href="${mapsUrl(next.location)}" target="_blank">📍 ${esc(next.location)}</a>`:'Location TBD'}</p>`:'<p class="muted">No events added yet.</p>'}</div>${out.length?`<div class="card"><h2>Outstanding actions</h2>${out.join('')}</div>`:''}`
+  const c=conflicts(), m=missing();
+  dashboard.innerHTML=`
+    <div class="grid two">
+      <div class="card"><div class="muted">Players</div><div class="stat">${state.players.length}</div></div>
+      <div class="card"><div class="muted">Roster records needing data</div><div class="stat">${m.length}</div></div>
+    </div>
+    ${c.length?`<div class="card warning"><h3>Jersey conflict</h3>${c.map(([n,names])=>`<p><b>#${n}</b>: ${names.join(' and ')}</p>`).join('')}</div>`:'<div class="card success"><b>No jersey conflicts.</b></div>'}
+    <div class="card"><h2>Current roster status</h2>
+      <p><b>12 of 15</b> players were matched to last season's rosters.</p>
+      <p><b>Jude Budge, Duke Kitchell, and Paul Roden</b> were not found, so their jersey and contact fields remain blank.</p>
+      <p class="small muted">Birthdays remain a coach-dashboard-only future feature and are not shown to parents.</p>
+    </div>
+    <div class="card"><h3>Next event</h3><p class="muted">${state.events.length?esc(state.events.sort((a,b)=>a.date.localeCompare(b.date))[0].title):'No events scheduled.'}</p><button onclick="nav('events')">Open Events</button></div>`;
 }
-function contactHtml(c,label){if(!c||(!c.name&&!c.email&&!c.phone))return'';return`<div class="contact-block"><strong>${esc(label)}${c.relationship?` • ${esc(c.relationship)}`:''}</strong><div>${esc(c.name||'')}</div><div class="contact-actions">${c.email?`<a class="email-link" href="mailto:${esc(c.email)}">✉ ${esc(c.email)}</a>`:''}${c.phone?`<button class="secondary tiny" onclick="openPhoneActions('${esc(c.phone)}','${esc(c.name||label)}')">☎ ${esc(c.phone)}</button>`:''}</div></div>`}
-function renderPlayers(){players.innerHTML=`<div class="row"><h2>Players</h2><button onclick="openPlayer()">Add player</button></div>${data.players.sort((a,b)=>a.name.localeCompare(b.name)).map(p=>`<div class="card"><div class="row"><div><h3>${esc(p.name)} ${p.jersey?`<span class="badge">#${esc(p.jersey)}</span>`:''}</h3><div class="small muted">${p.registered?'Officially registered':'Tryout/accepted only'} • ${p.teamReach?'TeamReach active':'TeamReach pending'}</div></div><button class="secondary" onclick="openPlayer('${p.id}')">Edit</button></div>${contactHtml(p.parent1,'Parent/Guardian 1')}${contactHtml(p.parent2,'Parent/Guardian 2')}${p.medical?`<div class="contact-block medical"><strong>Medical information</strong><div>${esc(p.medical)}</div></div>`:''}${p.notes?`<p>${esc(p.notes)}</p>`:''}</div>`).join('')}`}
-function openPhoneActions(phone,name){phoneContent.innerHTML=`<h2>${esc(name)}</h2><p>${esc(phone)}</p><div class="quick-actions"><a href="tel:${cleanPhone(phone)}"><button>Call</button></a><a href="sms:${cleanPhone(phone)}"><button>Text</button></a></div>`;phoneDialog.showModal()}
-function openPlayer(id){const z={name:'',relationship:'',email:'',phone:''},p=id?data.players.find(x=>x.id===id):{id:'',name:'',jersey:'',dob:'',registered:false,teamReach:false,parent1:{...z},parent2:{...z},medical:'',notes:''};openModal('Player',`<label>Name<input name="name" value="${esc(p.name)}" required></label><div class="two-col"><label>DOB<input name="dob" type="date" value="${esc(p.dob)}"></label><label>Jersey<input name="jersey" value="${esc(p.jersey)}"></label></div><hr><h3>Parent/Guardian 1</h3>${parentFields('p1',p.parent1)}<hr><h3>Parent/Guardian 2</h3>${parentFields('p2',p.parent2)}<hr><label><input name="registered" type="checkbox" ${p.registered?'checked':''}> Official registration complete</label><label><input name="teamReach" type="checkbox" ${p.teamReach?'checked':''}> TeamReach active</label><label>Medical information<textarea name="medical" placeholder="Allergies, asthma, medications, injuries, restrictions...">${esc(p.medical||'')}</textarea></label><label>Notes<textarea name="notes">${esc(p.notes||'')}</textarea></label>`,f=>{const o={...p,id:p.id||uid(),name:f.name.value.trim(),dob:f.dob.value,jersey:f.jersey.value.trim(),parent1:getParent(f,'p1'),parent2:getParent(f,'p2'),registered:f.registered.checked,teamReach:f.teamReach.checked,medical:f.medical.value.trim(),notes:f.notes.value.trim()};if(id)data.players[data.players.findIndex(x=>x.id===id)]=o;else data.players.push(o);save()})}
-function parentFields(k,c={}){return`<div class="two-col"><label>Name<input name="${k}name" value="${esc(c.name||'')}"></label><label>Relationship<input name="${k}rel" value="${esc(c.relationship||'')}"></label></div><label>Email<input name="${k}email" type="email" value="${esc(c.email||'')}"></label><label>Phone<input name="${k}phone" type="tel" value="${esc(c.phone||'')}"></label>`}
-function getParent(f,k){return{name:f[k+'name'].value.trim(),relationship:f[k+'rel'].value.trim(),email:f[k+'email'].value.trim(),phone:f[k+'phone'].value.trim()}}
-function renderEvents(){const s=[...data.events].sort((a,b)=>(a.date||'9999').localeCompare(b.date||'9999'));events.innerHTML=`<div class="row"><h2>Schedule</h2><button onclick="openEvent()">Add event</button></div>${s.length?s.map(e=>`<div class="card"><div class="row"><div><h3>${esc(e.title||eventTypeLabel(e.type))}</h3><p>${fmtDate(e.date)} ${esc(e.time||'')}<br>${e.location?`<a class="location-link" href="${mapsUrl(e.location)}" target="_blank">📍 ${esc(e.location)}</a>`:'Location TBD'}</p><span class="badge">${esc(eventTypeLabel(e.type))}</span></div><div class="quick-actions"><button class="secondary tiny" onclick="duplicateEvent('${e.id}')">Duplicate</button><button class="secondary tiny" onclick="openEvent('${e.id}')">Edit</button></div></div></div>`).join(''):'<div class="card muted">Add practices, games, indoor sessions, tournaments, and scrimmages as released.</div>'}`}
-function openEvent(id,copy){const e=id?data.events.find(x=>x.id===id):(copy||{id:'',title:'',type:'practice',date:'',time:'',endTime:'',location:'',opponent:'',notes:''});openModal('Event',`<label>Title<input name="title" value="${esc(e.title)}" placeholder="Tuesday practice or vs Saratoga"></label><label>Type<select name="type">${['practice','league','indoor','tournament','scrimmage'].map(x=>`<option value="${x}" ${e.type===x?'selected':''}>${eventTypeLabel(x)}</option>`).join('')}</select></label><label>Date<input name="date" type="date" value="${esc(e.date)}"></label><div class="two-col"><label>Start<input name="time" type="time" value="${esc(e.time)}"></label><label>End<input name="endTime" type="time" value="${esc(e.endTime)}"></label></div><label>Location<input name="location" value="${esc(e.location)}" placeholder="Venue or full address"></label><label>Opponent<input name="opponent" value="${esc(e.opponent)}"></label><label>Notes<textarea name="notes">${esc(e.notes)}</textarea></label>`,f=>{const o={...e,id:id?e.id:uid(),title:f.title.value.trim(),type:f.type.value,date:f.date.value,time:f.time.value,endTime:f.endTime.value,location:f.location.value.trim(),opponent:f.opponent.value.trim(),notes:f.notes.value.trim()};if(id)data.events[data.events.findIndex(x=>x.id===id)]=o;else data.events.push(o);save()})}
-function duplicateEvent(id){const e=data.events.find(x=>x.id===id);if(e)openEvent(null,{...e,id:'',date:''})}
-function renderAttendance(){attendance.innerHTML=`<div class="row"><h2>Attendance</h2><button onclick="openAttendance()">Record</button></div>${data.attendance.length?data.attendance.slice().reverse().map(a=>`<div class="card"><h3>${esc(a.title)}</h3><p>${fmtDate(a.date)}</p><p>${a.present.length}/${data.players.length} present</p></div>`).join(''):'<div class="card muted">Attendance records will appear here.</div>'}`}
-function openAttendanceForEvent(id){const e=data.events.find(x=>x.id===id);openAttendance(e?{date:e.date,title:e.title||eventTypeLabel(e.type)}:null)}
-function openAttendance(prefill=null){openModal('Attendance',`<label>Date<input name="date" type="date" value="${esc(prefill?.date||'')}" required></label><label>Title<input name="title" value="${esc(prefill?.title||'Practice')}"></label><div class="stack">${data.players.map(p=>`<label><input type="checkbox" name="p_${p.id}" checked> ${esc(p.name)}</label>`).join('')}</div>`,f=>{data.attendance.push({id:uid(),date:f.date.value,title:f.title.value.trim(),present:data.players.filter(p=>f['p_'+p.id]?.checked).map(p=>p.id)});save()})}
+function renderPlayers(){
+  players.innerHTML=`<div class="card"><h2>Players</h2><p class="muted">Tap a player to review or edit coach-held contact and safety information.</p>
+  ${state.players.map(p=>`<div class="player-row" onclick="editPlayer('${p.id}')">
+    <div class="jersey ${p.jersey?'':'empty'}">${p.jersey||'—'}</div>
+    <div><b>${esc(p.first)} ${esc(p.last)}</b>
+      <div class="contact-links">${p.email?`<a onclick="event.stopPropagation()" href="mailto:${esc(p.email)}">Email</a>`:''}${p.phone?`<a onclick="event.stopPropagation()" href="tel:${esc(p.phone)}">Call</a>`:''}</div>
+      ${p.notes?`<div class="small muted">${esc(p.notes)}</div>`:''}
+    </div><button class="secondary">Edit</button>
+  </div>`).join('')}</div>`;
+}
+function openModal(html,onSave){
+  modalContent.innerHTML=html; modal.showModal();
+  modalCancel.onclick=()=>modal.close();
+  modalForm.onsubmit=e=>{e.preventDefault();onSave(new FormData(modalForm));modal.close();save();render();};
+}
+window.editPlayer=id=>{
+  const p=state.players.find(x=>x.id===id);
+  openModal(`<h2>${esc(p.first)} ${esc(p.last)}</h2>
+  <label>Jersey number</label><input name="jersey" value="${esc(p.jersey)}">
+  <label>Parent/guardian name</label><input name="contactName" value="${esc(p.contactName)}">
+  <label>Email</label><input type="email" name="email" value="${esc(p.email)}">
+  <label>Phone</label><input name="phone" value="${esc(p.phone)}">
+  <label>Participation/safety alert</label><textarea name="medical">${esc(p.medical)}</textarea>
+  <label>Coach notes</label><textarea name="notes">${esc(p.notes)}</textarea>`,fd=>{
+    ['jersey','contactName','email','phone','medical','notes'].forEach(k=>p[k]=fd.get(k).trim());
+  });
+}
+function renderEvents(){
+  events.innerHTML=`<div class="card"><h2>Events</h2><button onclick="newEvent()">Add event</button></div>
+  ${state.events.length?state.events.map(e=>`<div class="card"><h3>${esc(e.title)}</h3><p>${esc(e.date)} · ${esc(e.type)}</p><p class="muted">${esc(e.location||'Location not set')}</p></div>`).join(''):'<div class="card muted">No events yet.</div>'}`;
+}
+window.newEvent=()=>openModal(`<h2>New event</h2><label>Title</label><input name="title" required><label>Type</label><select name="type"><option>Practice</option><option>Game</option><option>Meeting</option></select><label>Date and time</label><input type="datetime-local" name="date" required><label>Location</label><input name="location">`,fd=>state.events.push(Object.fromEntries(fd.entries())));
+function fmt(sec){return String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0')}
 function renderPractice(){
- const cats=['All',...new Set(data.drills.map(d=>d.category||'General'))];
- const filtered=data.drills.filter(d=>{
-   const hay=[d.name,d.theme,d.category,d.coachingPoints,d.setup,d.play].join(' ').toLowerCase();
-   return (!drillSearch||hay.includes(drillSearch.toLowerCase()))&&(drillCategory==='All'||(d.category||'General')===drillCategory);
- });
- practice.innerHTML=`<div class="quick-actions"><button onclick="openPractice()">New plan</button><button class="secondary" onclick="openDrill()">Add drill</button><button class="secondary" onclick="showView('attendance')">Attendance</button><button class="secondary" onclick="showView('development')">Development</button></div>
- <h2>Practice plans</h2>
- ${data.practices.length?data.practices.slice().reverse().map(p=>`<div class="card"><div class="row"><div><h3>${esc(p.theme)}</h3><p>${fmtDate(p.date)} • ${esc(p.duration)} minutes</p></div><span class="badge">${(p.drills||[]).reduce((s,x)=>s+(Number(x.minutes)||0),0)} min planned</span></div><p>${esc(p.objectives)}</p>${p.drills?.length?`<ol>${p.drills.map(x=>`<li>${esc(x.name)} (${esc(x.minutes)} min)</li>`).join('')}</ol>`:''}<p class="small muted">${esc(p.notes||'')}</p></div>`).join(''):'<div class="card muted">Create plans as practice dates are confirmed.</div>'}
- <div class="row"><h2>Drill library</h2><span class="badge">${filtered.length}/${data.drills.length}</span></div>
- <div class="two-col"><label>Search drills<input id="drillSearchInput" value="${esc(drillSearch)}" placeholder="First touch, rondo, pressing..."></label><label>Category<select id="drillCategoryInput">${cats.map(c=>`<option ${drillCategory===c?'selected':''}>${esc(c)}</option>`).join('')}</select></label></div>
- <div class="drill-library">${filtered.map(d=>`<details class="card drill-card"><summary><div><strong>${esc(d.name)}</strong><div class="small muted">${esc(d.theme)} • ${esc(d.minutes)} min • ${esc(d.players)} players</div></div><span class="badge">${esc(d.category||'General')}</span></summary>
- <div class="drill-expanded">
- ${d.age?`<p><strong>Age:</strong> ${esc(d.age)}</p>`:''}
- <p><strong>Equipment:</strong> ${esc(d.equipment||'')}</p>
- <p><strong>Setup:</strong> ${esc(d.setup||'')}</p>
- <p><strong>How it plays:</strong> ${esc(d.play||'')}</p>
- ${d.coachingPoints?`<p><strong>Coaching points:</strong> ${esc(d.coachingPoints)}</p>`:''}
- ${d.mistakes?`<p><strong>Common mistakes:</strong> ${esc(d.mistakes)}</p>`:''}
- ${d.progressions?`<p><strong>Progressions:</strong> ${esc(d.progressions)}</p>`:''}
- ${d.regressions?`<p><strong>Regressions:</strong> ${esc(d.regressions)}</p>`:''}
- <p><strong>Coach comments:</strong> ${esc(d.comments||'')}</p>
- <div class="quick-actions"><button class="secondary tiny" onclick="event.preventDefault();openDrill('${d.id}')">Edit</button><button class="danger tiny" onclick="event.preventDefault();deleteDrill('${d.id}')">Delete</button></div>
- </div></details>`).join('')}</div>`;
- drillSearchInput.oninput=e=>{drillSearch=e.target.value;renderPractice()};
- drillCategoryInput.onchange=e=>{drillCategory=e.target.value;renderPractice()};
+  practice.innerHTML=`<div class="card"><h2>Practice Mode</h2><div class="timer">${fmt(elapsed)}</div><div style="display:flex;gap:8px;justify-content:center"><button onclick="toggleTimer()">${timerRunning?'Pause':'Start'}</button><button class="secondary" onclick="resetTimer()">Reset</button></div></div>
+  <div class="card"><h3>Quick note</h3><textarea id="practiceNote" placeholder="What needs attention?"></textarea><button onclick="saveNote('practice')">Save note</button></div>`;
 }
-const practiceThemes=[
- {name:'Ball Mastery & Dribbling',description:'Focuses on touches, turns, running with the ball, and 1v1 moves.'},
- {name:'Passing & Combination Play',description:'Emphasizes weight of pass, receiving with the back foot, spatial awareness, and short combinations.'},
- {name:'Finishing & Shooting',description:'Centers on ball striking, creating shooting windows, and follow-up rebounds.'},
- {name:'Defending & Pressing',description:'Concentrates on 1v1 defending, recovery runs, and winning the ball in the attacking half.'},
- {name:'Transitions & Small-Sided Games',description:'Focuses on quick reactions from attack-to-defense or defense-to-attack and managing numerical advantages.'}
-];
-let draggedPracticeIndex=null,touchDragIndex=null;
-function updateThemeChoice(){
- const custom=document.getElementById('customThemeWrap'),desc=document.getElementById('themeDescription'),sel=document.getElementById('themeSelect');
- if(!sel)return;
- custom.classList.toggle('hidden',sel.value!=='Custom');
- const theme=practiceThemes.find(x=>x.name===sel.value);
- desc.textContent=theme?theme.description:'Enter a custom practice theme.';
+window.toggleTimer=()=>{timerRunning=!timerRunning;if(timerRunning)timer=setInterval(()=>{elapsed++;renderPractice()},1000);else clearInterval(timer);renderPractice();}
+window.resetTimer=()=>{clearInterval(timer);timerRunning=false;elapsed=0;renderPractice();}
+window.saveNote=type=>{const el=document.getElementById(type+'Note');if(el&&el.value.trim()){state.notes.push({type,text:el.value.trim(),time:new Date().toISOString()});save();el.value='';}}
+function renderGame(){
+ game.innerHTML=`<div class="card"><h2>Game Day</h2><div class="score"><button onclick="score(-1,0)">−</button><span>${state.score.us} – ${state.score.them}</span><button onclick="score(1,0)">+</button></div><p class="muted" style="text-align:center">Touchline score – Opponent</p><div class="score"><button class="secondary" onclick="score(0,-1)">Opp −</button><button class="secondary" onclick="score(0,1)">Opp +</button></div></div>
+ <div class="card"><h3>Quick match note</h3><textarea id="gameNote"></textarea><button onclick="saveNote('game')">Save note</button></div>`;
 }
-function finalPracticeTheme(form){return form.themeSelect.value==='Custom'?form.customTheme.value.trim():form.themeSelect.value}
-function openPractice(){
- tempPracticeDrills=[];
- openModal('Practice builder',`<label>Date<input name="date" type="date"></label>
- <label>Theme<select id="themeSelect" name="themeSelect" onchange="updateThemeChoice()">${practiceThemes.map(t=>`<option value="${esc(t.name)}">${esc(t.name)}</option>`).join('')}<option value="Custom">Custom theme</option></select></label>
- <div id="themeDescription" class="theme-description"></div>
- <label id="customThemeWrap" class="hidden">Custom theme<input name="customTheme" placeholder="Enter your own theme"></label>
- <label>Available duration<input id="practiceDuration" name="duration" type="number" value="90" min="1"></label><label>Objectives<textarea name="objectives"></textarea></label>
- <div class="contact-block"><div class="row"><strong>Practice playlist</strong><span class="small muted">Drag the handle to reorder, or use Move up/down</span></div>
- <label>Add drill<select id="practiceDrillSelect">${data.drills.map(d=>`<option value="${d.id}">${esc(d.name)} (${esc(d.minutes)} min)</option>`).join('')}</select></label>
- <button type="button" class="secondary" onclick="addPracticeDrill()">Add selected drill</button><div id="selectedDrills" class="drill-list"></div><div id="practiceTotal"></div></div>
- <label>Equipment / reminders<textarea name="equipment"></textarea></label><label>After-practice notes<textarea name="notes"></textarea></label>`,
- f=>{const theme=finalPracticeTheme(f);if(!theme){alert('Please enter a custom theme.');return}data.practices.push({id:uid(),date:f.date.value,theme,duration:f.duration.value,objectives:f.objectives.value.trim(),drills:tempPracticeDrills.map(x=>({...x})),equipment:f.equipment.value.trim(),notes:f.notes.value.trim()});save()});
- practiceDuration.oninput=renderSelectedDrills;updateThemeChoice();renderSelectedDrills();
+window.score=(u,t)=>{state.score.us=Math.max(0,state.score.us+u);state.score.them=Math.max(0,state.score.them+t);save();renderGame();}
+function renderAars(){
+ aars.innerHTML=`<div class="card"><h2>AAR Index</h2><p class="muted">Completed practice and match reviews will appear here.</p></div>`;
 }
-function addPracticeDrill(){const d=data.drills.find(x=>x.id===practiceDrillSelect.value);if(d){tempPracticeDrills.push({id:d.id,name:d.name,minutes:Number(d.minutes)||0,setup:d.setup||'',play:d.play||'',coachingPoints:d.coachingPoints||''});renderSelectedDrills()}}
-function movePracticeDrill(i,n){const j=i+n;if(j<0||j>=tempPracticeDrills.length)return;[tempPracticeDrills[i],tempPracticeDrills[j]]=[tempPracticeDrills[j],tempPracticeDrills[i]];renderSelectedDrills()}
-function movePracticeItem(from,to){if(from===to||from==null||to==null||from<0||to<0||from>=tempPracticeDrills.length||to>=tempPracticeDrills.length)return;const [item]=tempPracticeDrills.splice(from,1);tempPracticeDrills.splice(to,0,item);renderSelectedDrills()}
-function dragPracticeStart(i,e){draggedPracticeIndex=i;e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',String(i));e.currentTarget.closest('.builder-row').classList.add('dragging')}
-function dragPracticeOver(i,e){e.preventDefault();e.dataTransfer.dropEffect='move';document.querySelectorAll('.builder-row').forEach(x=>x.classList.remove('drag-target'));e.currentTarget.classList.add('drag-target')}
-function dropPractice(i,e){e.preventDefault();const from=Number(e.dataTransfer.getData('text/plain'));movePracticeItem(from,i)}
-function dragPracticeEnd(){draggedPracticeIndex=null;document.querySelectorAll('.builder-row').forEach(x=>x.classList.remove('dragging','drag-target'))}
-function touchPracticeStart(i,e){touchDragIndex=i;e.currentTarget.closest('.builder-row').classList.add('dragging')}
-function touchPracticeMove(e){if(touchDragIndex==null)return;e.preventDefault();const t=e.touches[0],target=document.elementFromPoint(t.clientX,t.clientY)?.closest('.builder-row');document.querySelectorAll('.builder-row').forEach(x=>x.classList.remove('drag-target'));if(target)target.classList.add('drag-target')}
-function touchPracticeEnd(e){if(touchDragIndex==null)return;const t=e.changedTouches[0],target=document.elementFromPoint(t.clientX,t.clientY)?.closest('.builder-row');const to=target?Number(target.dataset.index):touchDragIndex;movePracticeItem(touchDragIndex,to);touchDragIndex=null}
-function removePracticeDrill(i){tempPracticeDrills.splice(i,1);renderSelectedDrills()}
-function updatePracticeMinutes(i,v){tempPracticeDrills[i].minutes=Math.max(0,Number(v)||0);renderSelectedDrills()}
-function renderSelectedDrills(){
- if(!window.selectedDrills)return;
- selectedDrills.innerHTML=tempPracticeDrills.map((d,i)=>`<div class="builder-row" data-index="${i}" draggable="true" ondragstart="dragPracticeStart(${i},event)" ondragover="dragPracticeOver(${i},event)" ondrop="dropPractice(${i},event)" ondragend="dragPracticeEnd()">
- <button type="button" class="drag-handle" aria-label="Drag ${esc(d.name)}" ontouchstart="touchPracticeStart(${i},event)" ontouchmove="touchPracticeMove(event)" ontouchend="touchPracticeEnd(event)">☰</button>
- <details class="drill-chip builder-item"><summary><span><strong>${i+1}. ${esc(d.name)}</strong></span><span>${d.minutes} min</span></summary><div class="builder-detail">
- <label>Minutes for this session<input type="number" min="0" value="${d.minutes}" oninput="updatePracticeMinutes(${i},this.value)"></label>
- ${d.setup?`<p><strong>Setup:</strong> ${esc(d.setup)}</p>`:''}${d.play?`<p><strong>How it plays:</strong> ${esc(d.play)}</p>`:''}${d.coachingPoints?`<p><strong>Coaching points:</strong> ${esc(d.coachingPoints)}</p>`:''}
- <div class="order-btns"><button type="button" class="secondary tiny" onclick="movePracticeDrill(${i},-1)">Move up</button><button type="button" class="secondary tiny" onclick="movePracticeDrill(${i},1)">Move down</button><button type="button" class="danger tiny" onclick="removePracticeDrill(${i})">Remove</button></div></div></details></div>`).join('');
- const total=tempPracticeDrills.reduce((s,x)=>s+(Number(x.minutes)||0),0),limit=Number(window.practiceDuration?.value)||0,over=limit&&total>limit;
- practiceTotal.innerHTML=`<div class="practice-total ${over?'over':''}"><strong>${total} of ${limit||'—'} minutes planned</strong>${over?`<div>${total-limit} minutes over the available time.</div>`:''}</div>`;
+function renderSettings(){
+ settings.innerHTML=`<div class="card"><h2>Team Settings</h2>
+ <p><b>${esc(state.team.name)}</b><br>${esc(state.team.season)}</p>
+ <span class="pill">Primary: ${esc(state.team.primary)}</span><span class="pill">Secondary: ${esc(state.team.secondary)}</span><span class="pill">Shorts: ${esc(state.team.shorts)}</span><span class="pill">Socks: ${esc(state.team.socks)}</span>
+ </div><div class="card"><h3>Data</h3><button onclick="exportData()">Export JSON</button> <button class="secondary" onclick="importFile.click()">Import JSON</button> <button class="danger" onclick="resetAll()">Reset app</button></div>
+ <div class="card warning"><b>Local-first:</b> this information is stored in this browser on this device. Export a backup before replacing site data or clearing browser storage.</div>`;
 }
-function openDrill(id){
- const d=id?data.drills.find(x=>x.id===id):D('','',0,'','','','','');
- openModal('Drill',`<label>Name<input name="name" value="${esc(d.name)}" required></label><label>Theme / objective<input name="theme" value="${esc(d.theme)}"></label>
- <div class="two-col"><label>Category<select name="category">${['Rondo','Ball Mastery','Passing & Receiving','Dribbling & 1v1','Possession','Transition','Finishing','Defending','Small-Sided Game','Warm-up','General'].map(x=>`<option ${x===(d.category||'General')?'selected':''}>${x}</option>`).join('')}</select></label><label>Age recommendation<input name="age" value="${esc(d.age||'U10-U14')}"></label></div>
- <div class="two-col"><label>Minutes<input name="minutes" type="number" value="${esc(d.minutes)}"></label><label>Players<input name="players" value="${esc(d.players)}"></label></div><label>Equipment<input name="equipment" value="${esc(d.equipment)}"></label>
- <label>Setup<textarea name="setup" placeholder="Grid size, positions, cones, goals...">${esc(d.setup||'')}</textarea></label><label>How it plays<textarea name="play" placeholder="Rules, scoring, rotations...">${esc(d.play||'')}</textarea></label>
- <label>Coaching points<textarea name="coachingPoints">${esc(d.coachingPoints||'')}</textarea></label><label>Common mistakes<textarea name="mistakes">${esc(d.mistakes||'')}</textarea></label>
- <label>Progressions<textarea name="progressions">${esc(d.progressions||'')}</textarea></label><label>Regressions<textarea name="regressions">${esc(d.regressions||'')}</textarea></label>
- <label>Coach comments<textarea name="comments" placeholder="What worked, modifications, reminders...">${esc(d.comments||'')}</textarea></label>`,
- f=>{const o={...d,id:id?d.id:uid(),name:f.name.value.trim(),theme:f.theme.value.trim(),category:f.category.value,age:f.age.value.trim(),minutes:f.minutes.value,players:f.players.value.trim(),equipment:f.equipment.value.trim(),setup:f.setup.value.trim(),play:f.play.value.trim(),coachingPoints:f.coachingPoints.value.trim(),mistakes:f.mistakes.value.trim(),progressions:f.progressions.value.trim(),regressions:f.regressions.value.trim(),comments:f.comments.value.trim()};if(id)data.drills[data.drills.findIndex(x=>x.id===id)]=o;else data.drills.push(o);save()});
-}
-function deleteDrill(id){const d=data.drills.find(x=>x.id===id);if(d&&confirm(`Delete "${d.name}"?`)){data.drills=data.drills.filter(x=>x.id!==id);save()}}
-function renderMatches(){matches.innerHTML=`<div class="row"><h2>Matches & AARs</h2><button onclick="openMatch()">Add match</button></div>${data.matches.length?data.matches.slice().reverse().map(m=>`<div class="card"><h3>${esc(m.opponent)} ${m.gf!==''?`${esc(m.gf)}–${esc(m.ga)}`:''}</h3><p>${fmtDate(m.date)} • ${esc(m.competition)}</p><p><strong>Went well:</strong> ${esc(m.well)}</p><p><strong>Improve:</strong> ${esc(m.improve)}</p><p><strong>Next practice:</strong> ${esc(m.next)}</p></div>`).join(''):'<div class="card muted">Record results and Army-style After Action Reviews.</div>'}`}
-function openMatch(){openModal('Match AAR',`<label>Date<input name="date" type="date"></label><label>Opponent<input name="opponent" required></label><label>Competition<input name="competition"></label><div class="two-col"><label>Goals for<input name="gf" type="number"></label><label>Goals against<input name="ga" type="number"></label></div><label>What was supposed to happen?<textarea name="planned"></textarea></label><label>What actually happened?<textarea name="actual"></textarea></label><label>What went well?<textarea name="well"></textarea></label><label>What needs improvement?<textarea name="improve"></textarea></label><label>What changes at the next practice?<textarea name="next"></textarea></label>`,f=>{data.matches.push({id:uid(),date:f.date.value,opponent:f.opponent.value.trim(),competition:f.competition.value.trim(),gf:f.gf.value,ga:f.ga.value,planned:f.planned.value.trim(),actual:f.actual.value.trim(),well:f.well.value.trim(),improve:f.improve.value.trim(),next:f.next.value.trim()});save()})}
-function playerName(id){return data.players.find(p=>p.id===id)?.name||'Unknown'}
-function renderDevelopment(){development.innerHTML=`<div class="row"><h2>Player development</h2><button onclick="openDevelopment()">Add note</button></div>${data.development.length?data.development.slice().reverse().map(n=>`<div class="card"><h3>${esc(playerName(n.playerId))}</h3><p>${fmtDate(n.date)} • <span class="badge">${esc(n.category)}</span></p><p>${esc(n.note)}</p></div>`).join(''):'<div class="card muted">Add short observations throughout the season.</div>'}`}
-function openDevelopment(){openModal('Development note',`<label>Player<select name="playerId">${data.players.map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join('')}</select></label><label>Date<input name="date" type="date"></label><label>Category<select name="category">${['Technical','Tactical','Physical','Mental','Teamwork','Decision-making'].map(x=>`<option>${x}</option>`).join('')}</select></label><label>Note<textarea name="note"></textarea></label>`,f=>{data.development.push({id:uid(),playerId:f.playerId.value,date:f.date.value,category:f.category.value,note:f.note.value.trim()});save()})}
-function renderEquipment(){equipment.innerHTML=`<div class="row"><h2>Equipment</h2><button onclick="openEquipment()">Add item</button></div>${data.equipment.map(x=>`<div class="card"><h3>${esc(x.item)}</h3><p>${esc(x.qty)} • ${esc(x.status)}</p>${x.notes?`<p>${esc(x.notes)}</p>`:''}</div>`).join('')}`}
-function openEquipment(){openModal('Equipment',`<label>Item<input name="item" required></label><label>Quantity<input name="qty" type="number"></label><label>Status<select name="status"><option>Good</option><option>Replace soon</option><option>Missing</option></select></label><label>Notes<textarea name="notes"></textarea></label>`,f=>{data.equipment.push({id:uid(),item:f.item.value.trim(),qty:f.qty.value,status:f.status.value,notes:f.notes.value.trim()});save()})}
-function renderSettings(){settings.innerHTML=`<h2>More</h2><div class="quick-actions"><button onclick="showView('attendance')">Attendance</button><button onclick="showView('development')">Development</button><button onclick="showView('equipment')">Equipment</button></div><div class="card"><h3>Team settings</h3><label>Team name<input id="setTeam" value="${esc(data.meta.teamName)}"></label><label>Season<input id="setSeason" value="${esc(data.meta.season)}"></label><button onclick="updateSettings()">Save settings</button></div><div class="card"><h3>Backup and handoff</h3><p class="muted">Everything is stored only on this device unless you export a backup.</p><div class="quick-actions"><button onclick="exportData()">Export backup</button><button class="secondary" onclick="importFile.click()">Import backup</button></div></div><div class="card"><h3>Reset</h3><button class="danger" onclick="resetData()">Erase local data</button></div>`}
-function updateSettings(){data.meta.teamName=setTeam.value.trim();data.meta.season=setSeason.value.trim();save()}
-function exportData(){const b=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=`Touchline_Binder_${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(a.href)}
-importFile.addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{data=JSON.parse(await f.text());save();alert('Backup imported.')}catch{alert('That file could not be imported.')}})
-function resetData(){if(confirm('Erase all local data and restore the starter roster?')){data=structuredClone(initialData);save()}}
-function showView(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));document.querySelectorAll('.bottom-nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===id));scrollTo({top:0,behavior:'smooth'})}
-document.querySelectorAll('.bottom-nav button').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)))
-function openModal(title,fields,onSave){modalContent.innerHTML=`<h2>${esc(title)}</h2><div class="stack">${fields}</div>`;modalSave.onclick=e=>{e.preventDefault();if(!modalForm.reportValidity())return;onSave(modalForm.elements);modal.close()};modal.showModal()}
-addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;installBtn.classList.remove('hidden')});installBtn.addEventListener('click',async()=>{if(!deferredPrompt)return;deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;installBtn.classList.add('hidden')});
-if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');renderAll();showView('dashboard');
+window.exportData=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(state,null,2)],{type:'application/json'}));a.download='touchline-backup.json';a.click();URL.revokeObjectURL(a.href);}
+importFile.onchange=async()=>{try{state=JSON.parse(await importFile.files[0].text());save();render();alert('Import complete.')}catch(e){alert('That file could not be imported.')}}
+window.resetAll=()=>{if(confirm('Reset Touchline and restore the preloaded roster?')){state=freshState();save();render();}}
+function render(){renderDashboard();renderPlayers();renderEvents();renderPractice();renderGame();renderAars();renderSettings();}
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;installBtn.classList.remove('hidden')});
+installBtn.onclick=async()=>{if(installPrompt){installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;installBtn.classList.add('hidden')}};
+if('serviceWorker'in navigator) navigator.serviceWorker.register('./sw.js');
+nav('dashboard');
