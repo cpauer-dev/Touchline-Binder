@@ -1,26 +1,43 @@
-# CHANGELOG
+# Changelog
 
-## v0.5.1
+## v0.6.0
 
-### Added
-- Preloaded BSSC U12 Boys B roster.
-- Imported available jersey numbers.
-- Imported available parent emails.
-- Imported available phone numbers.
-- Added roster import summary.
+### Restored and Expanded
+- Restored the Drill Library.
+- Restored the Practice Builder.
+- Restored the coach-first Practice Mode and Game Day Mode concepts.
+- Restored unified Event and AAR architecture.
 
-### Changed
-- Dashboard now highlights missing roster information.
-- Player profiles begin pre-populated from prior-season roster data.
+### Players
+- Player first and last names are editable.
+- Each player can have multiple parent or guardian contacts.
+- Added editable relationship, email, and phone for every contact.
+- Added positions, coach notes, birthdate, and practical safety information.
+- Preserved imported BSSC U12 Boys B roster information.
 
-### Known Issues
-- Jersey #17 conflict (Colin Nichol / Finnley Clark).
-- Jude Budge has no imported contact information.
-- Duke Kitchell has no imported contact information.
-- Paul Roden has no imported contact information.
+### Practice
+- Added themed Drill Library filtering.
+- Added full drill CRUD.
+- Added drill favorites, equipment, setup, how-to, and coaching points.
+- Added drag-and-drop Practice Builder.
+- Added custom drill durations and saved practice plans.
+- Added live master and drill timers, navigation, quick notes, and automatic practice AAR creation.
 
-### Next Target (v0.6)
-- README and release documentation integrated into every release.
-- Improved Event architecture.
-- Attendance workflow.
-- Expanded Practice Builder.
+### Games and Events
+- Added practice, game, and meeting Events.
+- Added arrival time, map link, attendance/availability, jersey suggestion, and overrides.
+- Added match clock, score, substitutions, individual playing-time tracking, one-touch events, and timestamped notes.
+- Added automatic match AAR creation.
+
+### Data and Packaging
+- Added v0.5.1 migration attempt.
+- Added JSON backup and restore.
+- Added README and CHANGELOG to the release.
+- Updated the PWA cache to v0.6.0.
+
+### Known Limitations
+- Data is local to each browser/device.
+- Parent accounts, cloud synchronization, and enforceable permissions are not yet implemented.
+- Voice transcription remains a future feature.
+- Lineup field placement is simplified; substitution and playing-time tracking are functional.
+- Birthday reminders are deferred and will remain coach/staff-only.

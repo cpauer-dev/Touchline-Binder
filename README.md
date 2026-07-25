@@ -1,33 +1,40 @@
-# Touchline v0.5.1
+# Touchline v0.6.0
 
-## Purpose
-Touchline is a local-first Progressive Web App (PWA) designed to help youth soccer coaches stay organized before, during, and after practices and matches.
+Touchline is a local-first Progressive Web App for youth soccer coaches.
 
 > **Touchline is a coaching assistant, not a coaching replacement.**
 
-The goal is to keep the coach's eyes on the players—not on a screen.
+The app is designed to maximize preparation, organization, and reflection while minimizing screen time during practices and matches.
 
-## Current Features
-- Dashboard with roster status
-- Player profiles
-- Events
-- Practice Mode
-- Game Day Mode
-- Team settings
-- Local storage (offline capable)
-- JSON import/export
-- Preloaded BSSC U12 Boys B roster (where data was available)
+## Included in v0.6
 
-## Installation
-1. Replace your GitHub Pages files with the contents of this release.
-2. Commit and push to GitHub.
-3. Open your GitHub Pages URL in Chrome.
-4. Choose **Install App** when prompted.
+- Editable player names and jersey numbers
+- Multiple parent/guardian contact records per player
+- Click-to-email and click-to-call
+- Coach-only birthdate field for future dashboard reminders
+- Practical participation and safety alerts
+- Player positions and private coaching notes
+- Full drill library with add, edit, delete, favorites, themes, setup, instructions, and coaching points
+- Practice Builder with themed filtering, drag/drop, custom durations, saved plans, and live Practice Mode
+- Unified Events for practices, games, and meetings
+- Pregame information, attendance/availability, map links, and automatic jersey suggestions
+- Game Day clock, score, substitutions, playing-time tracking, timestamped events, and notes
+- Event-linked AAR Index
+- Team staff role templates
+- Offline PWA caching
+- JSON export/import
+- Migration attempt from v0.5.1 local browser data
 
-## Data
-All information is stored locally in the browser unless you export a backup.
+## GitHub Pages Update
 
-## Project Status
-Prototype / Pre-Alpha
+Upload all files and folders from this release to the same GitHub Pages location used for the prior version. Keep the folder structure intact.
 
-This version is intended for real sideline testing and iterative improvement.
+Because v0.6 uses a new service-worker cache, the installed app may need to be fully closed and reopened. When an old screen persists, refresh the GitHub Pages site in Chrome before reopening the installed PWA.
+
+## Data Warning
+
+Touchline currently stores its data in the browser on the device. Export a JSON backup regularly, especially before clearing browser data, changing the GitHub Pages path, or testing on a second device.
+
+## Status
+
+Pre-alpha sideline testing build.

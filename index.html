@@ -1,52 +1,26 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#123524">
-  <meta name="description" content="Touchline local-first youth soccer coaching assistant">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="icons/icon-192.png">
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <link rel="stylesheet" href="styles.css">
-  <title>Touchline</title>
-</head>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#123524"><meta name="description" content="Touchline youth soccer coaching assistant">
+<link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="styles.css">
+<link rel="icon" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png">
+<title>Touchline v0.6</title></head>
 <body>
-<header class="topbar">
-  <div><h1>Touchline</h1><p>BSSC U12 Boys B · 2026–27</p></div>
-  <button id="installBtn" class="secondary hidden">Install</button>
-</header>
-
+<header><div><h1>Touchline</h1><small id="teamLine"></small></div><button id="installBtn" class="ghost hidden">Install</button></header>
 <main>
-  <section id="dashboard" class="view active"></section>
-  <section id="players" class="view"></section>
-  <section id="events" class="view"></section>
-  <section id="practice" class="view"></section>
-  <section id="game" class="view"></section>
-  <section id="aars" class="view"></section>
-  <section id="settings" class="view"></section>
+<section id="dashboard" class="view"></section>
+<section id="players" class="view"></section>
+<section id="drills" class="view"></section>
+<section id="builder" class="view"></section>
+<section id="events" class="view"></section>
+<section id="live" class="view"></section>
+<section id="aars" class="view"></section>
+<section id="more" class="view"></section>
 </main>
-
-<nav class="bottom-nav">
-  <button data-view="dashboard">Home</button>
-  <button data-view="players">Players</button>
-  <button data-view="events">Events</button>
-  <button data-view="practice">Practice</button>
-  <button data-view="game">Game</button>
-  <button data-view="settings">More</button>
+<nav>
+<button data-view="dashboard">Home</button><button data-view="players">Players</button><button data-view="drills">Drills</button>
+<button data-view="builder">Builder</button><button data-view="events">Events</button><button data-view="more">More</button>
 </nav>
-
-<dialog id="modal">
-  <form method="dialog" id="modalForm">
-    <div id="modalContent"></div>
-    <div class="dialog-actions">
-      <button type="button" id="modalCancel" class="secondary">Cancel</button>
-      <button type="submit">Save</button>
-    </div>
-  </form>
-</dialog>
-
-<input id="importFile" class="hidden" type="file" accept="application/json">
-<script src="app.js"></script>
-</body>
-</html>
+<dialog id="modal"><form id="modalForm"><div id="modalBody"></div><div class="actions"><button type="button" id="cancelModal" class="secondary">Cancel</button><button type="submit">Save</button></div></form></dialog>
+<input id="importFile" type="file" accept="application/json" hidden>
+<script src="app.js"></script></body></html>

@@ -1,120 +1,179 @@
 
-const DEFAULT_PLAYERS = [{"id": "landon-cartier", "first": "Landon", "last": "Cartier", "jersey": "14", "email": "lauranizolek@gmail.com", "phone": "518-796-9686", "contactName": "Laura Cartier", "relationship": "Parent/Guardian", "notes": "", "medical": ""}, {"id": "jude-budge", "first": "Jude", "last": "Budge", "jersey": "", "email": "", "phone": "", "contactName": "", "relationship": "Parent/Guardian", "notes": "", "medical": ""}, {"id": "grayson-santoro", "first": "Grayson", "last": "Santoro", "jersey": "23", "email": "asantoro2@nycap.rr.com", "phone": "518-495-2252", "contactName": "Katy Santoro", "relationship": "Parent/Guardian", "notes": "", "medical": ""}, {"id": "colin-nichol", "first": "Colin", "last": "Nichol", "jersey": "17", "email": "ryan.larson@bkwschools.org", "phone": "518-429-7012", "contactName": "", "relationship": "Parent/Guardian", "notes": "Last name appeared as \u201cNicol\u201d on last season\u2019s roster.", "medical": ""}, {"id": "luca-bertagnoli", "first": "Luca", "last": "Bertagnoli", "jersey": "20", "email": "tonybert@gmail.com", "phone": "714-345-7645", "contactName": "", "relationship": "Parent/Guardian", "notes": "", "medical": ""}, {"id": "finnley-clark", "first": "Finnley", "last": "Clark", "jersey": "17", "email": "tracylclark24@gmail.com", "phone": "", "contactName": "", "relationship": "Parent/Guardian", "notes": "Jersey #17 conflicts with Colin Nichol.", "medical": ""}, {"id": "jacob-madara", "first": "Jacob", "last": "Madara", "jersey": "10", "email": "jwmadara@yahoo.com", "phone": "518-330-2899", "contactName": "", "relationship": "Parent/Guardian", "notes": "", "medical": ""}, {"id": "brody-waite", "first": "Brody", "last": "Waite", "jersey": "34", "email": "angela.waite.aw@gmail.com", "phone": "518-859-5787", "contactName": "", "relationship": "Parent/Guardian", "notes": "", "medical": ""}, {"id": "derrick-lopez", "first": "Derrick", "last": "Lopez", "jersey": "21", "email": "maddiec95@yahoo.com", "phone": "518-338-8411", "contactName": "", "relationship": "Parent/Guardian", "notes": "First name appeared as \u201cDerek\u201d on last season\u2019s roster.", "medical": ""}, {"id": "jaxon-mcdonough", "first": "Jaxon", "last": "McDonough", "jersey": "11", "email": "tobeysnyder@hotmail.com", "phone": "518-926-8974", "contactName": "", "relationship": "Parent/Guardian", "notes": "", "medical": ""}, {"id": "carson-pauer", "first": "Carson", "last": "Pauer", "jersey": "13", "email": "kaitling1987@gmail.com", "phone": "215-680-0765", "contactName": "Kate Pauer", "relationship": "Parent/Guardian", "notes": "", "medical": ""}, {"id": "duke-kitchell", "first": "Duke", "last": "Kitchell", "jersey": "", "email": "", "phone": "", "contactName": "", "relationship": "Parent/Guardian", "notes": "", "medical": ""}, {"id": "hunter-harrington", "first": "Hunter", "last": "Harrington", "jersey": "27", "email": "kalienamarie@yahoo.com", "phone": "518-379-7678", "contactName": "", "relationship": "Parent/Guardian", "notes": "", "medical": ""}, {"id": "ezra-hall", "first": "Ezra", "last": "Hall", "jersey": "5", "email": "dhallrmadrid@gmail.com", "phone": "", "contactName": "", "relationship": "Parent/Guardian", "notes": "", "medical": ""}, {"id": "paul-roden", "first": "Paul", "last": "Roden", "jersey": "", "email": "", "phone": "", "contactName": "", "relationship": "Parent/Guardian", "notes": "", "medical": ""}];
-const KEY='touchline-v051';
-let installPrompt=null;
-let timer=null, elapsed=0, timerRunning=false;
+const DEFAULT={"version": "0.6.0", "team": {"name": "BSSC U12 Boys B", "season": "2026\u201327", "primary": "White", "secondary": "Black", "goalkeeper": "Green", "shorts": "Black", "socks": "Black", "alternateNotes": ""}, "players": [{"id": "p-landon", "first": "Landon", "last": "Cartier", "jersey": "14", "birthdate": "", "positions": [], "contacts": [{"name": "Laura Cartier", "relationship": "Parent/Guardian", "email": "lauranizolek@gmail.com", "phone": "518-796-9686"}], "medical": "", "coachNotes": ""}, {"id": "p-jude", "first": "Jude", "last": "Budge", "jersey": "", "birthdate": "", "positions": [], "contacts": [{"name": "", "relationship": "Parent/Guardian", "email": "", "phone": ""}], "medical": "", "coachNotes": ""}, {"id": "p-grayson", "first": "Grayson", "last": "Santoro", "jersey": "23", "birthdate": "", "positions": [], "contacts": [{"name": "Katy Santoro", "relationship": "Parent/Guardian", "email": "asantoro2@nycap.rr.com", "phone": "518-495-2252"}], "medical": "", "coachNotes": ""}, {"id": "p-colin", "first": "Colin", "last": "Nichol", "jersey": "17", "birthdate": "", "positions": [], "contacts": [{"name": "", "relationship": "Parent/Guardian", "email": "ryan.larson@bkwschools.org", "phone": "518-429-7012"}], "medical": "", "coachNotes": "Last name appeared as \u201cNicol\u201d on last season\u2019s roster."}, {"id": "p-luca", "first": "Luca", "last": "Bertagnoli", "jersey": "20", "birthdate": "", "positions": [], "contacts": [{"name": "", "relationship": "Parent/Guardian", "email": "tonybert@gmail.com", "phone": "714-345-7645"}], "medical": "", "coachNotes": ""}, {"id": "p-finnley", "first": "Finnley", "last": "Clark", "jersey": "17", "birthdate": "", "positions": [], "contacts": [{"name": "", "relationship": "Parent/Guardian", "email": "tracylclark24@gmail.com", "phone": ""}], "medical": "", "coachNotes": "Jersey #17 conflicts with Colin Nichol."}, {"id": "p-jacob", "first": "Jacob", "last": "Madara", "jersey": "10", "birthdate": "", "positions": [], "contacts": [{"name": "", "relationship": "Parent/Guardian", "email": "jwmadara@yahoo.com", "phone": "518-330-2899"}], "medical": "", "coachNotes": ""}, {"id": "p-brody", "first": "Brody", "last": "Waite", "jersey": "34", "birthdate": "", "positions": [], "contacts": [{"name": "", "relationship": "Parent/Guardian", "email": "angela.waite.aw@gmail.com", "phone": "518-859-5787"}], "medical": "", "coachNotes": ""}, {"id": "p-derrick", "first": "Derrick", "last": "Lopez", "jersey": "21", "birthdate": "", "positions": [], "contacts": [{"name": "", "relationship": "Parent/Guardian", "email": "maddiec95@yahoo.com", "phone": "518-338-8411"}], "medical": "", "coachNotes": "First name appeared as \u201cDerek\u201d on last season\u2019s roster."}, {"id": "p-jaxon", "first": "Jaxon", "last": "McDonough", "jersey": "11", "birthdate": "", "positions": [], "contacts": [{"name": "", "relationship": "Parent/Guardian", "email": "tobeysnyder@hotmail.com", "phone": "518-926-8974"}], "medical": "", "coachNotes": ""}, {"id": "p-carson", "first": "Carson", "last": "Pauer", "jersey": "13", "birthdate": "", "positions": [], "contacts": [{"name": "Kate Pauer", "relationship": "Parent/Guardian", "email": "kaitling1987@gmail.com", "phone": "215-680-0765"}], "medical": "", "coachNotes": ""}, {"id": "p-duke", "first": "Duke", "last": "Kitchell", "jersey": "", "birthdate": "", "positions": [], "contacts": [{"name": "", "relationship": "Parent/Guardian", "email": "", "phone": ""}], "medical": "", "coachNotes": ""}, {"id": "p-hunter", "first": "Hunter", "last": "Harrington", "jersey": "27", "birthdate": "", "positions": [], "contacts": [{"name": "", "relationship": "Parent/Guardian", "email": "kalienamarie@yahoo.com", "phone": "518-379-7678"}], "medical": "", "coachNotes": ""}, {"id": "p-ezra", "first": "Ezra", "last": "Hall", "jersey": "5", "birthdate": "", "positions": [], "contacts": [{"name": "", "relationship": "Parent/Guardian", "email": "dhallrmadrid@gmail.com", "phone": ""}], "medical": "", "coachNotes": ""}, {"id": "p-paul", "first": "Paul", "last": "Roden", "jersey": "", "birthdate": "", "positions": [], "contacts": [{"name": "", "relationship": "Parent/Guardian", "email": "", "phone": ""}], "medical": "", "coachNotes": ""}], "staff": [{"id": "s-head", "name": "Chris Pauer", "role": "Head Coach", "permissions": ["all"]}], "drills": [{"id": "d-rondo-3v1", "name": "3v1 Rondo", "theme": "Passing & Combination Play", "duration": 10, "players": "4 per grid", "equipment": "Cones, balls", "summary": "Fast support angles and one-touch/two-touch possession.", "setup": "Create 8\u00d78 to 10\u00d710-yard grids. Three outside players keep possession against one defender.", "how": "Rotate defender after a win, bad touch, or set interval. Progress by reducing space or limiting touches.", "coaching": ["Scan before receiving", "Open body shape", "Pass to the correct foot", "React immediately after losing possession"], "favorite": true}, {"id": "d-rondo-directional", "name": "Directional Rondo", "theme": "Transitions & Small-Sided Games", "duration": 12, "players": "8\u201312", "equipment": "Cones, pinnies, balls", "summary": "Possession with direction, targets, and transition moments.", "setup": "Two teams in a rectangle with target players or end zones at each end.", "how": "Score by connecting into the target or playing through an end zone. On turnover, direction immediately reverses.", "coaching": ["Play forward when available", "Create width and depth", "Counterpress for five seconds", "Support behind and beyond the ball"], "favorite": true}, {"id": "d-ball-mastery", "name": "Ball Mastery Chaos Grid", "theme": "Ball Mastery & Dribbling", "duration": 10, "players": "All", "equipment": "One ball each, cones", "summary": "High-repetition touches with scanning and traffic.", "setup": "Mark a crowded grid. Every player begins with a ball.", "how": "Coach changes movement constraints: inside/outside, sole rolls, weak foot, turns, accelerations, partner gates.", "coaching": ["Head up between touches", "Keep the ball within playing distance", "Change speed after a move", "Use both feet"], "favorite": true}, {"id": "d-4goal", "name": "Four-Goal Game", "theme": "Transitions & Small-Sided Games", "duration": 18, "players": "6\u201312", "equipment": "Four mini goals, pinnies, balls", "summary": "Chaotic game that rewards scanning, switching, and quick decisions.", "setup": "Place two mini goals on each end line. Play 3v3 to 6v6.", "how": "Teams may score in either opponent goal. Restart quickly to maintain flow.", "coaching": ["Recognize the open goal", "Switch the point of attack", "Defend compactly", "Play quickly after transition"], "favorite": false}, {"id": "d-finishing", "name": "Opposed Finishing Waves", "theme": "Finishing & Shooting", "duration": 15, "players": "6\u201314", "equipment": "Goal, balls, cones, pinnies", "summary": "Game-realistic finishing with recovering defenders.", "setup": "Attackers begin with a numerical advantage; defenders recover from behind or the side.", "how": "Run short waves such as 2v1, 3v2, or 2v2 plus recovering defender.", "coaching": ["First touch toward goal", "Finish early when possible", "Follow rebounds", "Defenders recover centrally"], "favorite": false}, {"id": "d-worldcup", "name": "World Cup", "theme": "Finishing & Shooting", "duration": 10, "players": "All", "equipment": "Goal, balls", "summary": "Competitive end-of-practice finishing game.", "setup": "Pairs or small teams attack one goal with a goalkeeper.", "how": "Score to advance; rotate goalkeeper and restart rapidly.", "coaching": ["Compete", "React to rebounds", "Choose placement or power", "Enjoy the finish"], "favorite": true}], "practicePlans": [], "events": [], "aars": [], "gameState": null, "practiceState": null};
+const KEY='touchline-v060';
+let state=loadState(), currentView='dashboard', deferredPrompt=null, liveTimer=null;
 
-function freshState(){
-  return {
-    team:{name:'BSSC U12 Boys B',season:'2026–27',primary:'White',secondary:'Black',shorts:'Black',socks:'Black'},
-    players:structuredClone(DEFAULT_PLAYERS),
-    events:[],
-    aars:[],
-    score:{us:0,them:0},
-    notes:[]
-  };
+function clone(x){return JSON.parse(JSON.stringify(x))}
+function loadState(){
+ try{
+  const s=JSON.parse(localStorage.getItem(KEY));
+  if(s) return migrate(s);
+  const old=JSON.parse(localStorage.getItem('touchline-v051'));
+  if(old){const n=clone(DEFAULT); if(old.players) n.players=old.players.map(p=>({...p,birthdate:p.birthdate||'',positions:p.positions||[],contacts:p.contacts||[{name:p.contactName||'',relationship:p.relationship||'Parent/Guardian',email:p.email||'',phone:p.phone||''}],coachNotes:p.notes||'',medical:p.medical||''})); return n}
+ }catch(e){}
+ return clone(DEFAULT)
 }
-let state=load();
-function load(){
-  try{
-    const saved=JSON.parse(localStorage.getItem(KEY));
-    if(saved) return saved;
-  }catch(e){}
-  const s=freshState(); localStorage.setItem(KEY,JSON.stringify(s)); return s;
+function migrate(s){
+ const d=clone(DEFAULT); return {...d,...s,team:{...d.team,...s.team},players:(s.players||d.players).map(p=>({...p,contacts:p.contacts||[{name:p.contactName||'',relationship:'Parent/Guardian',email:p.email||'',phone:p.phone||''}],positions:p.positions||[],birthdate:p.birthdate||'',medical:p.medical||'',coachNotes:p.coachNotes||p.notes||''})),drills:s.drills||d.drills,practicePlans:s.practicePlans||[],events:s.events||[],aars:s.aars||[]}
 }
-function save(){localStorage.setItem(KEY,JSON.stringify(state));}
-function esc(s=''){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
-function nav(view){
-  document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));
-  document.getElementById(view).classList.add('active');
-  document.querySelectorAll('.bottom-nav button').forEach(x=>x.classList.toggle('active',x.dataset.view===view));
-  render();
-}
-document.querySelectorAll('.bottom-nav button').forEach(b=>b.onclick=()=>nav(b.dataset.view));
-
-function conflicts(){
-  const map={};
-  state.players.forEach(p=>{if(p.jersey)(map[p.jersey]??=[]).push(p.first+' '+p.last)});
-  return Object.entries(map).filter(([,v])=>v.length>1);
-}
-function missing(){
-  return state.players.filter(p=>!p.jersey||!p.email||!p.phone);
-}
-function renderDashboard(){
-  const c=conflicts(), m=missing();
-  dashboard.innerHTML=`
-    <div class="grid two">
-      <div class="card"><div class="muted">Players</div><div class="stat">${state.players.length}</div></div>
-      <div class="card"><div class="muted">Roster records needing data</div><div class="stat">${m.length}</div></div>
-    </div>
-    ${c.length?`<div class="card warning"><h3>Jersey conflict</h3>${c.map(([n,names])=>`<p><b>#${n}</b>: ${names.join(' and ')}</p>`).join('')}</div>`:'<div class="card success"><b>No jersey conflicts.</b></div>'}
-    <div class="card"><h2>Current roster status</h2>
-      <p><b>12 of 15</b> players were matched to last season's rosters.</p>
-      <p><b>Jude Budge, Duke Kitchell, and Paul Roden</b> were not found, so their jersey and contact fields remain blank.</p>
-      <p class="small muted">Birthdays remain a coach-dashboard-only future feature and are not shown to parents.</p>
-    </div>
-    <div class="card"><h3>Next event</h3><p class="muted">${state.events.length?esc(state.events.sort((a,b)=>a.date.localeCompare(b.date))[0].title):'No events scheduled.'}</p><button onclick="nav('events')">Open Events</button></div>`;
-}
-function renderPlayers(){
-  players.innerHTML=`<div class="card"><h2>Players</h2><p class="muted">Tap a player to review or edit coach-held contact and safety information.</p>
-  ${state.players.map(p=>`<div class="player-row" onclick="editPlayer('${p.id}')">
-    <div class="jersey ${p.jersey?'':'empty'}">${p.jersey||'—'}</div>
-    <div><b>${esc(p.first)} ${esc(p.last)}</b>
-      <div class="contact-links">${p.email?`<a onclick="event.stopPropagation()" href="mailto:${esc(p.email)}">Email</a>`:''}${p.phone?`<a onclick="event.stopPropagation()" href="tel:${esc(p.phone)}">Call</a>`:''}</div>
-      ${p.notes?`<div class="small muted">${esc(p.notes)}</div>`:''}
-    </div><button class="secondary">Edit</button>
-  </div>`).join('')}</div>`;
-}
+function save(){localStorage.setItem(KEY,JSON.stringify(state))}
+function esc(v=''){return String(v).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function id(prefix){return prefix+'-'+Date.now()+'-'+Math.random().toString(36).slice(2,7)}
+function fmt(sec){sec=Math.max(0,Math.floor(sec||0));return String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0')}
+function dateText(v){if(!v)return 'Date not set'; const d=new Date(v); return isNaN(d)?v:d.toLocaleString([], {dateStyle:'medium',timeStyle:'short'})}
 function openModal(html,onSave){
-  modalContent.innerHTML=html; modal.showModal();
-  modalCancel.onclick=()=>modal.close();
-  modalForm.onsubmit=e=>{e.preventDefault();onSave(new FormData(modalForm));modal.close();save();render();};
+ modalBody.innerHTML=html; modal.showModal(); cancelModal.onclick=()=>modal.close();
+ modalForm.onsubmit=e=>{e.preventDefault();onSave(new FormData(modalForm));save();modal.close();render()}
 }
-window.editPlayer=id=>{
-  const p=state.players.find(x=>x.id===id);
-  openModal(`<h2>${esc(p.first)} ${esc(p.last)}</h2>
-  <label>Jersey number</label><input name="jersey" value="${esc(p.jersey)}">
-  <label>Parent/guardian name</label><input name="contactName" value="${esc(p.contactName)}">
-  <label>Email</label><input type="email" name="email" value="${esc(p.email)}">
-  <label>Phone</label><input name="phone" value="${esc(p.phone)}">
-  <label>Participation/safety alert</label><textarea name="medical">${esc(p.medical)}</textarea>
-  <label>Coach notes</label><textarea name="notes">${esc(p.notes)}</textarea>`,fd=>{
-    ['jersey','contactName','email','phone','medical','notes'].forEach(k=>p[k]=fd.get(k).trim());
-  });
+function nav(view){currentView=view;document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===view));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===view));render()}
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>nav(b.dataset.view));
+
+function jerseyConflicts(){const m={};state.players.forEach(p=>{if(p.jersey)(m[p.jersey]??=[]).push(p)});return Object.entries(m).filter(x=>x[1].length>1)}
+function missingPlayers(){return state.players.filter(p=>!p.jersey||!p.contacts.some(c=>c.email||c.phone))}
+function nextEvent(){return [...state.events].filter(e=>new Date(e.start)>=new Date()).sort((a,b)=>a.start.localeCompare(b.start))[0]}
+function renderDashboard(){
+ const ev=nextEvent(), conflicts=jerseyConflicts(), due=state.events.filter(e=>e.completed&&!state.aars.some(a=>a.eventId===e.id));
+ dashboard.innerHTML=`
+ <div class="grid three">
+  <div class="card"><div class="muted">Players</div><div class="stat">${state.players.length}</div></div>
+  <div class="card"><div class="muted">Drills</div><div class="stat">${state.drills.length}</div></div>
+  <div class="card"><div class="muted">AARs due</div><div class="stat">${due.length}</div></div>
+ </div>
+ ${conflicts.length?`<div class="card warning"><h3>Jersey conflict</h3>${conflicts.map(([n,ps])=>`<p><b>#${n}</b>: ${ps.map(p=>esc(p.first+' '+p.last)).join(' and ')}</p>`).join('')}</div>`:''}
+ <div class="card"><h2>${ev?'Next event':'No upcoming event'}</h2>${ev?`<h3>${esc(ev.title)}</h3><p>${dateText(ev.start)}</p><p>${esc(ev.location||'Location not set')}</p><p><b>Wear:</b> ${esc(ev.jerseyOverride||suggestKit(ev))}</p><div class="row-actions"><button onclick="openEvent('${ev.id}')">Pregame</button><button class="secondary" onclick="startEvent('${ev.id}')">Start ${ev.type}</button></div>`:`<button onclick="nav('events')">Add event</button>`}</div>
+ <div class="grid two"><div class="card"><h3>Practice Builder</h3><p class="muted">Build a themed session from your drill library, then launch Practice Mode.</p><button onclick="nav('builder')">Build practice</button></div>
+ <div class="card"><h3>Roster completeness</h3><p><b>${missingPlayers().length}</b> player records still need a jersey or contact method.</p><button class="secondary" onclick="nav('players')">Review players</button></div></div>`
 }
+function suggestKit(e){if(e.venue==='Away')return `${state.team.secondary} jersey · ${state.team.shorts} shorts · ${state.team.socks} socks`;return `${state.team.primary} jersey · ${state.team.shorts} shorts · ${state.team.socks} socks`}
+
+function renderPlayers(){
+ players.innerHTML=`<div class="card"><div style="display:flex;justify-content:space-between;gap:8px;align-items:center"><div><h2>Players</h2><p class="muted small">Names, multiple guardians, contact links, positions, coach notes, and safety alerts.</p></div><button onclick="newPlayer()">Add player</button></div>
+ ${state.players.sort((a,b)=>a.last.localeCompare(b.last)).map(p=>`<div class="player"><div class="jersey ${p.jersey?'':'empty'}">${esc(p.jersey||'—')}</div><div><b>${esc(p.first)} ${esc(p.last)}</b>${p.medical?` <span class="medical">⚠ Safety alert</span>`:''}<div class="small muted">${p.positions.length?esc(p.positions.join(', ')):'Positions not set'}</div>
+ ${p.contacts.map(c=>`<div class="small">${esc(c.name||'Unnamed contact')}${c.relationship?` · ${esc(c.relationship)}`:''}<div class="links">${c.email?`<a href="mailto:${esc(c.email)}" onclick="event.stopPropagation()">Email</a>`:''}${c.phone?`<a href="tel:${esc(c.phone)}" onclick="event.stopPropagation()">Call</a>`:''}</div></div>`).join('')}</div><button class="secondary smallbtn" onclick="editPlayer('${p.id}')">Edit</button></div>`).join('')}</div>`
+}
+window.newPlayer=()=>editPlayer(null)
+window.editPlayer=pid=>{
+ const p=pid?state.players.find(x=>x.id===pid):{id:id('p'),first:'',last:'',jersey:'',birthdate:'',positions:[],contacts:[{name:'',relationship:'Parent/Guardian',email:'',phone:''}],medical:'',coachNotes:''};
+ const positionOptions=['Goalkeeper','Defender','Midfielder','Forward'];
+ openModal(`<h2>${pid?'Edit player':'Add player'}</h2><div class="grid two"><div><label>First name</label><input name="first" required value="${esc(p.first)}"></div><div><label>Last name</label><input name="last" required value="${esc(p.last)}"></div></div>
+ <div class="grid two"><div><label>Jersey</label><input name="jersey" value="${esc(p.jersey)}"></div><div><label>Birthdate (coach/staff only)</label><input type="date" name="birthdate" value="${esc(p.birthdate)}"></div></div>
+ <label>Positions</label><div class="checkgrid">${positionOptions.map(x=>`<label><input type="checkbox" name="positions" value="${x}" ${p.positions.includes(x)?'checked':''}> ${x}</label>`).join('')}</div>
+ <label>Parent / guardian contacts</label><div id="contactsEditor">${p.contacts.map((c,i)=>contactEditor(c,i)).join('')}</div><button type="button" class="secondary" onclick="addContactEditor()">Add another contact</button>
+ <label>Participation / safety information</label><textarea name="medical" placeholder="Asthma, allergies, restrictions, emergency medication notes">${esc(p.medical)}</textarea>
+ <label>Coach notes</label><textarea name="coachNotes">${esc(p.coachNotes)}</textarea>
+ ${pid?`<button type="button" class="danger" onclick="deletePlayer('${p.id}')">Delete player</button>`:''}`,fd=>{
+  p.first=fd.get('first').trim();p.last=fd.get('last').trim();p.jersey=fd.get('jersey').trim();p.birthdate=fd.get('birthdate');p.positions=fd.getAll('positions');p.medical=fd.get('medical').trim();p.coachNotes=fd.get('coachNotes').trim();
+  p.contacts=[...document.querySelectorAll('.contact-block')].map(b=>({name:b.querySelector('[data-f=name]').value.trim(),relationship:b.querySelector('[data-f=relationship]').value.trim(),email:b.querySelector('[data-f=email]').value.trim(),phone:b.querySelector('[data-f=phone]').value.trim()})).filter(c=>c.name||c.email||c.phone);
+  if(!p.contacts.length)p.contacts=[{name:'',relationship:'Parent/Guardian',email:'',phone:''}];
+  if(!pid)state.players.push(p)
+ })
+}
+function contactEditor(c,i){return `<div class="contact-block"><div class="contact-head"><b>Contact ${i+1}</b><button type="button" class="danger smallbtn" onclick="this.closest('.contact-block').remove()">Remove</button></div><label>Name</label><input data-f="name" value="${esc(c.name)}"><label>Relationship</label><input data-f="relationship" value="${esc(c.relationship)}"><div class="grid two"><div><label>Email</label><input data-f="email" type="email" value="${esc(c.email)}"></div><div><label>Phone</label><input data-f="phone" value="${esc(c.phone)}"></div></div></div>`}
+window.addContactEditor=()=>{const div=document.createElement('div');div.innerHTML=contactEditor({name:'',relationship:'Parent/Guardian',email:'',phone:''},document.querySelectorAll('.contact-block').length);contactsEditor.appendChild(div.firstElementChild)}
+window.deletePlayer=pid=>{if(confirm('Delete this player?')){state.players=state.players.filter(p=>p.id!==pid);save();modal.close();render()}}
+
+function renderDrills(){
+ const themes=['All','Ball Mastery & Dribbling','Passing & Combination Play','Finishing & Shooting','Defending & Pressing','Transitions & Small-Sided Games'];
+ const filter=window.drillFilter||'All';
+ const list=state.drills.filter(d=>filter==='All'||d.theme===filter);
+ drills.innerHTML=`<div class="card"><div style="display:flex;justify-content:space-between;gap:8px;align-items:center"><div><h2>Drill Library</h2><p class="muted small">Expandable setup, instructions, coaching points, favorites, and full editing.</p></div><button onclick="editDrill()">Add drill</button></div><label>Theme</label><select onchange="window.drillFilter=this.value;renderDrills()">${themes.map(t=>`<option ${t===filter?'selected':''}>${t}</option>`).join('')}</select></div>
+ ${list.sort((a,b)=>(b.favorite-a.favorite)||a.name.localeCompare(b.name)).map(d=>`<div class="card drill-card theme" draggable="true" ondragstart="dragDrill(event,'${d.id}')"><div style="display:flex;justify-content:space-between;gap:8px"><div><h3>${d.favorite?'★ ':''}${esc(d.name)}</h3><span class="pill">${esc(d.theme)}</span><span class="pill">${d.duration} min</span></div><button class="secondary smallbtn" onclick="editDrill('${d.id}')">Edit</button></div><p>${esc(d.summary)}</p><details><summary>Setup and coaching detail</summary><p><b>Players:</b> ${esc(d.players)}</p><p><b>Equipment:</b> ${esc(d.equipment)}</p><p><b>Setup:</b> ${esc(d.setup)}</p><p><b>How to run it:</b> ${esc(d.how)}</p><b>Coaching points</b><ul>${d.coaching.map(c=>`<li>${esc(c)}</li>`).join('')}</ul></details></div>`).join('')}`
+}
+window.editDrill=did=>{
+ const d=did?state.drills.find(x=>x.id===did):{id:id('d'),name:'',theme:'Ball Mastery & Dribbling',duration:10,players:'',equipment:'',summary:'',setup:'',how:'',coaching:[],favorite:false};
+ openModal(`<h2>${did?'Edit drill':'Add drill'}</h2><label>Name</label><input name="name" required value="${esc(d.name)}"><label>Theme</label><select name="theme">${['Ball Mastery & Dribbling','Passing & Combination Play','Finishing & Shooting','Defending & Pressing','Transitions & Small-Sided Games','Custom'].map(x=>`<option ${x===d.theme?'selected':''}>${x}</option>`).join('')}</select><label>Duration (minutes)</label><input type="number" name="duration" min="1" value="${d.duration}"><div class="grid two"><div><label>Players / format</label><input name="players" value="${esc(d.players)}"></div><div><label>Equipment</label><input name="equipment" value="${esc(d.equipment)}"></div></div><label>Summary</label><textarea name="summary">${esc(d.summary)}</textarea><label>Setup</label><textarea name="setup">${esc(d.setup)}</textarea><label>How to run it</label><textarea name="how">${esc(d.how)}</textarea><label>Coaching points (one per line)</label><textarea name="coaching">${esc(d.coaching.join('\n'))}</textarea><label><input style="width:auto" type="checkbox" name="favorite" ${d.favorite?'checked':''}> Favorite</label>${did?`<button type="button" class="danger" onclick="deleteDrill('${d.id}')">Delete drill</button>`:''}`,fd=>{Object.assign(d,{name:fd.get('name').trim(),theme:fd.get('theme'),duration:Number(fd.get('duration'))||10,players:fd.get('players').trim(),equipment:fd.get('equipment').trim(),summary:fd.get('summary').trim(),setup:fd.get('setup').trim(),how:fd.get('how').trim(),coaching:fd.get('coaching').split('\n').map(x=>x.trim()).filter(Boolean),favorite:fd.get('favorite')==='on'});if(!did)state.drills.push(d)})
+}
+window.deleteDrill=did=>{if(confirm('Delete this drill?')){state.drills=state.drills.filter(d=>d.id!==did);save();modal.close();render()}}
+window.dragDrill=(e,did)=>e.dataTransfer.setData('text/plain',did)
+
+let workingPlan={id:null,name:'',theme:'Ball Mastery & Dribbling',date:'',notes:'',items:[]}
+function loadPlan(pid){const p=state.practicePlans.find(x=>x.id===pid);workingPlan=p?clone(p):{id:null,name:'',theme:'Ball Mastery & Dribbling',date:'',notes:'',items:[]};renderBuilder()}
+function totalPlan(){return workingPlan.items.reduce((s,i)=>s+(Number(i.duration)||0),0)}
+function renderBuilder(){
+ const themes=['Ball Mastery & Dribbling','Passing & Combination Play','Finishing & Shooting','Defending & Pressing','Transitions & Small-Sided Games','Custom'];
+ builder.innerHTML=`<div class="card"><h2>Practice Builder</h2><div class="grid two"><div><label>Practice name</label><input value="${esc(workingPlan.name)}" oninput="workingPlan.name=this.value"></div><div><label>Theme</label><select onchange="workingPlan.theme=this.value">${themes.map(t=>`<option ${t===workingPlan.theme?'selected':''}>${t}</option>`).join('')}</select></div></div><label>Practice date</label><input type="datetime-local" value="${esc(workingPlan.date)}" onchange="workingPlan.date=this.value"><label>Session notes / objectives</label><textarea oninput="workingPlan.notes=this.value">${esc(workingPlan.notes)}</textarea></div>
+ <div class="grid two"><div><div class="card"><h3>Library</h3><p class="small muted">Drag drills to the plan or tap Add.</p>${state.drills.filter(d=>workingPlan.theme==='Custom'||d.theme===workingPlan.theme||d.favorite).map(d=>`<div class="player" draggable="true" ondragstart="dragDrill(event,'${d.id}')"><div></div><div><b>${esc(d.name)}</b><div class="small muted">${d.duration} min · ${esc(d.theme)}</div></div><button class="secondary smallbtn" onclick="addToPlan('${d.id}')">Add</button></div>`).join('')}</div></div>
+ <div><div class="card"><div style="display:flex;justify-content:space-between"><h3>Playlist</h3><b>${totalPlan()} min</b></div><div class="dropzone" ondragover="event.preventDefault()" ondrop="dropToPlan(event)">${workingPlan.items.length?workingPlan.items.map((i,n)=>{const d=state.drills.find(x=>x.id===i.drillId);return `<div class="plan-item" draggable="true" ondragstart="dragPlanItem(event,${n})"><div class="handle">☰</div><div><b>${esc(d?.name||'Missing drill')}</b><div class="small muted">${esc(d?.summary||'')}</div></div><div><input class="duration" style="width:70px" type="number" min="1" value="${i.duration}" onchange="workingPlan.items[${n}].duration=Number(this.value);renderBuilder()"><button class="danger smallbtn" onclick="removePlanItem(${n})">×</button></div></div>`}).join(''):'Drop drills here'}</div><div class="row-actions"><button onclick="savePlan()">Save plan</button><button class="secondary" onclick="launchPractice()">Start Practice</button><button class="secondary" onclick="workingPlan={id:null,name:'',theme:'Ball Mastery & Dribbling',date:'',notes:'',items:[]};renderBuilder()">Clear</button></div></div>
+ <div class="card"><h3>Saved practices</h3>${state.practicePlans.length?state.practicePlans.map(p=>`<div class="player"><div></div><div><b>${esc(p.name)}</b><div class="small muted">${p.items.reduce((s,i)=>s+i.duration,0)} min · ${esc(p.theme)}</div></div><button class="secondary smallbtn" onclick="loadPlan('${p.id}')">Open</button></div>`).join(''):'<p class="muted">None saved yet.</p>'}</div></div></div>`
+}
+window.addToPlan=did=>{const d=state.drills.find(x=>x.id===did);workingPlan.items.push({drillId:did,duration:d.duration});renderBuilder()}
+window.dropToPlan=e=>{e.preventDefault();const did=e.dataTransfer.getData('text/plain');if(did.startsWith('plan-')){const from=Number(did.slice(5));const [item]=workingPlan.items.splice(from,1);workingPlan.items.push(item)}else addToPlan(did);renderBuilder()}
+window.dragPlanItem=(e,n)=>e.dataTransfer.setData('text/plain','plan-'+n)
+window.removePlanItem=n=>{workingPlan.items.splice(n,1);renderBuilder()}
+window.savePlan=()=>{if(!workingPlan.name.trim())workingPlan.name=`${workingPlan.theme} Practice`; if(workingPlan.id){const i=state.practicePlans.findIndex(x=>x.id===workingPlan.id);state.practicePlans[i]=clone(workingPlan)}else{workingPlan.id=id('plan');state.practicePlans.push(clone(workingPlan))}save();renderBuilder()}
+window.launchPractice=()=>{if(!workingPlan.items.length)return alert('Add at least one drill.');savePlan();state.practiceState={planId:workingPlan.id,index:0,master:0,drill:0,running:false,notes:[],attendance:Object.fromEntries(state.players.map(p=>[p.id,true]))};save();nav('live')}
+
 function renderEvents(){
-  events.innerHTML=`<div class="card"><h2>Events</h2><button onclick="newEvent()">Add event</button></div>
-  ${state.events.length?state.events.map(e=>`<div class="card"><h3>${esc(e.title)}</h3><p>${esc(e.date)} · ${esc(e.type)}</p><p class="muted">${esc(e.location||'Location not set')}</p></div>`).join(''):'<div class="card muted">No events yet.</div>'}`;
+ events.innerHTML=`<div class="card"><div style="display:flex;justify-content:space-between"><div><h2>Events</h2><p class="muted small">Practices, games, meetings, attendance, lineups, jersey plan, notes, and AAR status.</p></div><button onclick="editEvent()">Add event</button></div></div>
+ ${[...state.events].sort((a,b)=>a.start.localeCompare(b.start)).map(e=>`<div class="card"><div style="display:flex;justify-content:space-between"><div><h3>${esc(e.title)}</h3><span class="pill">${esc(e.type)}</span><span class="pill">${esc(e.venue)}</span></div><button class="secondary smallbtn" onclick="editEvent('${e.id}')">Edit</button></div><p>${dateText(e.start)}${e.arrival?`<br><b>Arrival:</b> ${dateText(e.arrival)}`:''}</p><p>${esc(e.location||'Location not set')}</p><p><b>Wear:</b> ${esc(e.jerseyOverride||suggestKit(e))}</p><div class="row-actions"><button onclick="openEvent('${e.id}')">Pregame</button><button class="secondary" onclick="startEvent('${e.id}')">Start ${esc(e.type)}</button>${e.completed&&!state.aars.some(a=>a.eventId===e.id)?`<button class="secondary" onclick="createAAR('${e.id}')">Complete AAR</button>`:''}</div></div>`).join('')||'<div class="card muted">No events yet.</div>'}`
 }
-window.newEvent=()=>openModal(`<h2>New event</h2><label>Title</label><input name="title" required><label>Type</label><select name="type"><option>Practice</option><option>Game</option><option>Meeting</option></select><label>Date and time</label><input type="datetime-local" name="date" required><label>Location</label><input name="location">`,fd=>state.events.push(Object.fromEntries(fd.entries())));
-function fmt(sec){return String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0')}
-function renderPractice(){
-  practice.innerHTML=`<div class="card"><h2>Practice Mode</h2><div class="timer">${fmt(elapsed)}</div><div style="display:flex;gap:8px;justify-content:center"><button onclick="toggleTimer()">${timerRunning?'Pause':'Start'}</button><button class="secondary" onclick="resetTimer()">Reset</button></div></div>
-  <div class="card"><h3>Quick note</h3><textarea id="practiceNote" placeholder="What needs attention?"></textarea><button onclick="saveNote('practice')">Save note</button></div>`;
+window.editEvent=eid=>{
+ const e=eid?state.events.find(x=>x.id===eid):{id:id('e'),title:'',type:'Practice',start:'',arrival:'',location:'',venue:'Home',opponent:'',jerseyOverride:'',notes:'',attendance:Object.fromEntries(state.players.map(p=>[p.id,'Unknown'])),lineup:{},completed:false};
+ openModal(`<h2>${eid?'Edit event':'Add event'}</h2><label>Title</label><input name="title" required value="${esc(e.title)}"><div class="grid two"><div><label>Type</label><select name="type">${['Practice','Game','Meeting'].map(x=>`<option ${x===e.type?'selected':''}>${x}</option>`).join('')}</select></div><div><label>Home / away / neutral</label><select name="venue">${['Home','Away','Neutral'].map(x=>`<option ${x===e.venue?'selected':''}>${x}</option>`).join('')}</select></div></div><div class="grid two"><div><label>Start</label><input type="datetime-local" name="start" value="${esc(e.start)}"></div><div><label>Arrival</label><input type="datetime-local" name="arrival" value="${esc(e.arrival)}"></div></div><label>Opponent</label><input name="opponent" value="${esc(e.opponent)}"><label>Location</label><input name="location" value="${esc(e.location)}"><label>Jersey override</label><input name="jerseyOverride" placeholder="Leave blank for automatic suggestion" value="${esc(e.jerseyOverride)}"><label>Notes</label><textarea name="notes">${esc(e.notes)}</textarea>${eid?`<button type="button" class="danger" onclick="deleteEvent('${e.id}')">Delete event</button>`:''}`,fd=>{['title','type','start','arrival','location','venue','opponent','jerseyOverride','notes'].forEach(k=>e[k]=fd.get(k));if(!eid)state.events.push(e)})
 }
-window.toggleTimer=()=>{timerRunning=!timerRunning;if(timerRunning)timer=setInterval(()=>{elapsed++;renderPractice()},1000);else clearInterval(timer);renderPractice();}
-window.resetTimer=()=>{clearInterval(timer);timerRunning=false;elapsed=0;renderPractice();}
-window.saveNote=type=>{const el=document.getElementById(type+'Note');if(el&&el.value.trim()){state.notes.push({type,text:el.value.trim(),time:new Date().toISOString()});save();el.value='';}}
-function renderGame(){
- game.innerHTML=`<div class="card"><h2>Game Day</h2><div class="score"><button onclick="score(-1,0)">−</button><span>${state.score.us} – ${state.score.them}</span><button onclick="score(1,0)">+</button></div><p class="muted" style="text-align:center">Touchline score – Opponent</p><div class="score"><button class="secondary" onclick="score(0,-1)">Opp −</button><button class="secondary" onclick="score(0,1)">Opp +</button></div></div>
- <div class="card"><h3>Quick match note</h3><textarea id="gameNote"></textarea><button onclick="saveNote('game')">Save note</button></div>`;
+window.deleteEvent=eid=>{if(confirm('Delete this event?')){state.events=state.events.filter(e=>e.id!==eid);save();modal.close();render()}}
+window.openEvent=eid=>{
+ const e=state.events.find(x=>x.id===eid);
+ const rows=state.players.map(p=>`<label><select style="width:105px" onchange="setAttendance('${e.id}','${p.id}',this.value)"><option ${e.attendance[p.id]==='Unknown'?'selected':''}>Unknown</option><option ${e.attendance[p.id]==='Available'?'selected':''}>Available</option><option ${e.attendance[p.id]==='Unavailable'?'selected':''}>Unavailable</option></select> ${esc(p.first)} ${esc(p.last)} ${p.medical?'⚠':''}</label>`).join('');
+ openModal(`<h2>${esc(e.title)}</h2><p>${dateText(e.start)}<br>${esc(e.location)}</p><p><b>Wear:</b> ${esc(e.jerseyOverride||suggestKit(e))}</p>${e.location?`<a class="button secondary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(e.location)}">Open map</a>`:''}<h3>Availability / attendance</h3><div class="checkgrid">${rows}</div><label>Event notes</label><textarea name="notes">${esc(e.notes)}</textarea>`,fd=>e.notes=fd.get('notes'))
 }
-window.score=(u,t)=>{state.score.us=Math.max(0,state.score.us+u);state.score.them=Math.max(0,state.score.them+t);save();renderGame();}
+window.setAttendance=(eid,pid,v)=>{state.events.find(e=>e.id===eid).attendance[pid]=v;save()}
+window.startEvent=eid=>{const e=state.events.find(x=>x.id===eid);if(e.type==='Practice'){const p=state.practicePlans.find(x=>x.date===e.start)||state.practicePlans[0];if(p){workingPlan=clone(p);launchPractice()}else{nav('builder')}}else if(e.type==='Game'){state.gameState={eventId:e.id,elapsed:0,running:false,us:0,them:0,onField:[],bench:state.players.map(p=>p.id),minutes:Object.fromEntries(state.players.map(p=>[p.id,0])),shiftStart:{},stats:[],notes:[]};save();nav('live')}}
+
+function liveTick(){
+ if(state.practiceState?.running){state.practiceState.master++;state.practiceState.drill++}
+ if(state.gameState?.running){state.gameState.elapsed++;state.gameState.onField.forEach(pid=>state.gameState.minutes[pid]=(state.gameState.minutes[pid]||0)+1)}
+ save();renderLive()
+}
+function renderLive(){
+ clearInterval(liveTimer);liveTimer=null;
+ if(state.practiceState){renderPracticeLive(); if(state.practiceState.running)liveTimer=setInterval(liveTick,1000);return}
+ if(state.gameState){renderGameLive(); if(state.gameState.running)liveTimer=setInterval(liveTick,1000);return}
+ live.innerHTML='<div class="card"><h2>Live Mode</h2><p class="muted">Start a practice plan or game event.</p></div>'
+}
+function renderPracticeLive(){
+ const ps=state.practiceState,p=state.practicePlans.find(x=>x.id===ps.planId),item=p?.items[ps.index],d=state.drills.find(x=>x.id===item?.drillId);
+ live.innerHTML=`<div class="card"><div class="muted" style="text-align:center">Practice ${ps.index+1} of ${p.items.length} · Master ${fmt(ps.master)}</div><div class="focus-title">${esc(d?.name||'Practice complete')}</div><div class="timer">${fmt(ps.drill)} / ${fmt((item?.duration||0)*60)}</div><p>${esc(d?.summary||'')}</p>${d?`<details open><summary>Coaching points</summary><ul>${d.coaching.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></details>`:''}<div class="actions"><button onclick="togglePractice()">${ps.running?'Pause':'Start'}</button><button class="secondary" onclick="prevDrill()">Previous</button><button class="secondary" onclick="nextDrill()">Next</button><button class="danger" onclick="finishPractice()">Finish</button></div></div><div class="card"><h3>Quick note</h3><textarea id="liveNote" placeholder="Brief observation; keep coaching."></textarea><button onclick="addLiveNote('practice')">Save note</button></div>`
+}
+window.togglePractice=()=>{state.practiceState.running=!state.practiceState.running;save();renderLive()}
+window.prevDrill=()=>{const p=state.practiceState; p.index=Math.max(0,p.index-1);p.drill=0;save();renderLive()}
+window.nextDrill=()=>{const p=state.practiceState,plan=state.practicePlans.find(x=>x.id===p.planId);p.index=Math.min(plan.items.length-1,p.index+1);p.drill=0;save();renderLive()}
+window.finishPractice=()=>{const ps=state.practiceState,p=state.practicePlans.find(x=>x.id===ps.planId);state.aars.push({id:id('aar'),eventId:null,type:'Practice',title:p.name,date:new Date().toISOString(),wentWell:'',improve:'',next:'',notes:ps.notes.join('\n')});state.practiceState=null;save();nav('aars')}
+
+function renderGameLive(){
+ const gs=state.gameState,e=state.events.find(x=>x.id===gs.eventId);
+ live.innerHTML=`<div class="card"><div class="muted" style="text-align:center">${esc(e?.opponent||e?.title||'Match')}</div><div class="timer">${fmt(gs.elapsed)}</div><div class="score"><button onclick="score('us',-1)">−</button><span>${gs.us} – ${gs.them}</span><button onclick="score('us',1)">+</button></div><div class="actions"><button onclick="toggleGame()">${gs.running?'Pause':'Kickoff'}</button><button class="secondary" onclick="score('them',1)">Opponent +</button><button class="secondary" onclick="score('them',-1)">Opponent −</button><button class="danger" onclick="finishGame()">End Match</button></div></div>
+ <div class="card"><h3>On field</h3><div class="bench">${gs.onField.map(pid=>chip(pid,true)).join('')||'<span class="muted">Tap bench players to put them on the field.</span>'}</div><h3>Bench</h3><div class="bench">${gs.bench.map(pid=>chip(pid,false)).join('')}</div></div>
+ <div class="card"><h3>One-touch events</h3><div class="row-actions">${['Goal','Assist','Shot','Save','Corner','Foul','Yellow','Red','Injury','Water Break'].map(x=>`<button class="secondary" onclick="logStat('${x}')">${x}</button>`).join('')}</div></div>
+ <div class="card"><h3>Quick note</h3><textarea id="liveNote"></textarea><button onclick="addLiveNote('game')">Save note</button></div>`
+}
+function chip(pid,on){const p=state.players.find(x=>x.id===pid);return `<button class="playerchip" onclick="movePlayer('${pid}',${on})">#${esc(p.jersey||'—')} ${esc(p.first)}<br><span class="small">${fmt(state.gameState.minutes[pid]||0)}</span></button>`}
+window.toggleGame=()=>{state.gameState.running=!state.gameState.running;save();renderLive()}
+window.score=(side,n)=>{state.gameState[side]=Math.max(0,state.gameState[side]+n);if(n>0)state.gameState.stats.push({type:side==='us'?'Goal':'Opponent Goal',time:state.gameState.elapsed});save();renderLive()}
+window.movePlayer=(pid,on)=>{const g=state.gameState;if(on){g.onField=g.onField.filter(x=>x!==pid);g.bench.push(pid)}else{g.bench=g.bench.filter(x=>x!==pid);g.onField.push(pid)}g.stats.push({type:'Substitution',playerId:pid,time:g.elapsed});save();renderLive()}
+window.logStat=type=>{state.gameState.stats.push({type,time:state.gameState.elapsed});save();alert(`${type} recorded at ${fmt(state.gameState.elapsed)}`)}
+window.addLiveNote=kind=>{const t=liveNote.value.trim();if(!t)return;(kind==='game'?state.gameState.notes:state.practiceState.notes).push(`${fmt(kind==='game'?state.gameState.elapsed:state.practiceState.master)} — ${t}`);liveNote.value='';save()}
+window.finishGame=()=>{const g=state.gameState,e=state.events.find(x=>x.id===g.eventId);if(e)e.completed=true;state.aars.push({id:id('aar'),eventId:g.eventId,type:'Game',title:e?.title||'Game',date:new Date().toISOString(),score:`${g.us}-${g.them}`,wentWell:'',improve:'',next:'',notes:g.notes.join('\n'),minutes:g.minutes,stats:g.stats});state.gameState=null;save();nav('aars')}
+
 function renderAars(){
- aars.innerHTML=`<div class="card"><h2>AAR Index</h2><p class="muted">Completed practice and match reviews will appear here.</p></div>`;
+ aars.innerHTML=`<div class="card"><h2>AAR Index</h2><p class="muted small">Every completed practice or match can retain reflection, notes, statistics, and future action.</p></div>${state.aars.length?state.aars.map(a=>`<div class="card"><h3>${esc(a.title)}</h3><span class="pill">${esc(a.type)}</span>${a.score?`<span class="pill">${esc(a.score)}</span>`:''}<p class="small muted">${dateText(a.date)}</p><p><b>Went well:</b> ${esc(a.wentWell||'Not completed')}</p><p><b>Improve:</b> ${esc(a.improve||'Not completed')}</p><button class="secondary" onclick="editAAR('${a.id}')">Open AAR</button></div>`).join(''):'<div class="card muted">No AARs yet.</div>'}`
 }
-function renderSettings(){
- settings.innerHTML=`<div class="card"><h2>Team Settings</h2>
- <p><b>${esc(state.team.name)}</b><br>${esc(state.team.season)}</p>
- <span class="pill">Primary: ${esc(state.team.primary)}</span><span class="pill">Secondary: ${esc(state.team.secondary)}</span><span class="pill">Shorts: ${esc(state.team.shorts)}</span><span class="pill">Socks: ${esc(state.team.socks)}</span>
- </div><div class="card"><h3>Data</h3><button onclick="exportData()">Export JSON</button> <button class="secondary" onclick="importFile.click()">Import JSON</button> <button class="danger" onclick="resetAll()">Reset app</button></div>
- <div class="card warning"><b>Local-first:</b> this information is stored in this browser on this device. Export a backup before replacing site data or clearing browser storage.</div>`;
+window.createAAR=eid=>{const e=state.events.find(x=>x.id===eid),a={id:id('aar'),eventId:eid,type:e.type,title:e.title,date:new Date().toISOString(),wentWell:'',improve:'',next:'',notes:''};state.aars.push(a);save();editAAR(a.id)}
+window.editAAR=aid=>{const a=state.aars.find(x=>x.id===aid);openModal(`<h2>${esc(a.title)} AAR</h2><label>What went well?</label><textarea name="wentWell">${esc(a.wentWell)}</textarea><label>What should improve?</label><textarea name="improve">${esc(a.improve)}</textarea><label>What will we do next?</label><textarea name="next">${esc(a.next)}</textarea><label>Session notes</label><textarea name="notes">${esc(a.notes)}</textarea>`,fd=>['wentWell','improve','next','notes'].forEach(k=>a[k]=fd.get(k)))}
+
+function renderMore(){
+ more.innerHTML=`<div class="card"><h2>More</h2><div class="row-actions"><button onclick="nav('aars')">AAR Index</button><button class="secondary" onclick="editTeam()">Team Settings</button></div></div>
+ <div class="card"><h3>Team Staff</h3>${state.staff.map(s=>`<p><b>${esc(s.name)}</b> · ${esc(s.role)}</p>`).join('')}<button class="secondary" onclick="addStaff()">Add staff member</button></div>
+ <div class="card"><h3>Backup and transfer</h3><div class="row-actions"><button onclick="exportData()">Export JSON</button><button class="secondary" onclick="importFile.click()">Import JSON</button><button class="danger" onclick="resetApp()">Reset app</button></div><p class="small muted">Local-first. Export before clearing browser data or changing hosting paths.</p></div>
+ <div class="card"><h3>Version</h3><p>Touchline v0.6.0</p><p class="muted small">Coach-first prototype. Birthday reminders remain deferred and coach/staff-only when implemented.</p></div>`
 }
-window.exportData=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(state,null,2)],{type:'application/json'}));a.download='touchline-backup.json';a.click();URL.revokeObjectURL(a.href);}
-importFile.onchange=async()=>{try{state=JSON.parse(await importFile.files[0].text());save();render();alert('Import complete.')}catch(e){alert('That file could not be imported.')}}
-window.resetAll=()=>{if(confirm('Reset Touchline and restore the preloaded roster?')){state=freshState();save();render();}}
-function render(){renderDashboard();renderPlayers();renderEvents();renderPractice();renderGame();renderAars();renderSettings();}
-window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;installBtn.classList.remove('hidden')});
-installBtn.onclick=async()=>{if(installPrompt){installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;installBtn.classList.add('hidden')}};
-if('serviceWorker'in navigator) navigator.serviceWorker.register('./sw.js');
-nav('dashboard');
+window.editTeam=()=>openModal(`<h2>Team Settings</h2><label>Team name</label><input name="name" value="${esc(state.team.name)}"><label>Season</label><input name="season" value="${esc(state.team.season)}"><div class="grid two"><div><label>Primary jersey</label><input name="primary" value="${esc(state.team.primary)}"></div><div><label>Secondary jersey</label><input name="secondary" value="${esc(state.team.secondary)}"></div><div><label>Goalkeeper jersey</label><input name="goalkeeper" value="${esc(state.team.goalkeeper)}"></div><div><label>Shorts</label><input name="shorts" value="${esc(state.team.shorts)}"></div><div><label>Socks</label><input name="socks" value="${esc(state.team.socks)}"></div></div><label>Alternate notes</label><textarea name="alternateNotes">${esc(state.team.alternateNotes)}</textarea>`,fd=>Object.keys(state.team).forEach(k=>state.team[k]=fd.get(k)))
+window.addStaff=()=>openModal(`<h2>Add staff</h2><label>Name</label><input name="name" required><label>Role template</label><select name="role">${['Assistant Coach','Team Manager','Statistician','Medical Volunteer','Parent Volunteer'].map(x=>`<option>${x}</option>`).join('')}</select>`,fd=>state.staff.push({id:id('s'),name:fd.get('name'),role:fd.get('role'),permissions:rolePermissions(fd.get('role'))}))
+function rolePermissions(r){return { 'Assistant Coach':['players','events','practice','game','aars'], 'Team Manager':['players','contacts','events','attendance'], 'Statistician':['game','stats'], 'Medical Volunteer':['medical','attendance'], 'Parent Volunteer':['attendance']}[r]||[]}
+window.exportData=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(state,null,2)],{type:'application/json'}));a.download=`touchline-${state.team.season}-backup.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+importFile.onchange=async()=>{try{state=migrate(JSON.parse(await importFile.files[0].text()));save();render();alert('Import complete.')}catch(e){alert('Import failed. The selected file is not a valid Touchline backup.')}}
+window.resetApp=()=>{if(confirm('Reset all local Touchline data?')){state=clone(DEFAULT);save();render()}}
+function render(){teamLine.textContent=`${state.team.name} · ${state.team.season}`;renderDashboard();renderPlayers();renderDrills();renderBuilder();renderEvents();renderLive();renderAars();renderMore()}
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;installBtn.classList.remove('hidden')});installBtn.onclick=async()=>{if(deferredPrompt){deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;installBtn.classList.add('hidden')}}
+if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js');
+save();nav('dashboard');
