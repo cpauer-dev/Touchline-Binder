@@ -1,40 +1,31 @@
-# Touchline v0.6.0
+# Touchline v0.6.1
 
 Touchline is a local-first Progressive Web App for youth soccer coaches.
 
 > **Touchline is a coaching assistant, not a coaching replacement.**
 
-The app is designed to maximize preparation, organization, and reflection while minimizing screen time during practices and matches.
+## This correction release includes
 
-## Included in v0.6
+- Restored and expanded contact information by merging prior roster data with recent team email information
+- Roster completeness based on at least one parent/guardian having a full name, phone, and email
+- General team-warning panel for duplicate jerseys, missing jerseys, incomplete contacts, and roster inconsistencies
+- 25 editable default drills: five in each core training category
+- Saved-practice opening correction
+- Desktop drag-and-drop plus touch reorder and visible up/down controls
+- Stable live timers that no longer dismiss the mobile keyboard every second
+- Persistent active Practice/Game session and resume behavior
+- Incomplete practice and game AARs counted on the dashboard
+- Faster pregame availability table with Yes, No, and Unknown columns
+- Team Staff selection from existing team adults
+- Editable permission checkboxes prefilled by role template
 
-- Editable player names and jersey numbers
-- Multiple parent/guardian contact records per player
-- Click-to-email and click-to-call
-- Coach-only birthdate field for future dashboard reminders
-- Practical participation and safety alerts
-- Player positions and private coaching notes
-- Full drill library with add, edit, delete, favorites, themes, setup, instructions, and coaching points
-- Practice Builder with themed filtering, drag/drop, custom durations, saved plans, and live Practice Mode
-- Unified Events for practices, games, and meetings
-- Pregame information, attendance/availability, map links, and automatic jersey suggestions
-- Game Day clock, score, substitutions, playing-time tracking, timestamped events, and notes
-- Event-linked AAR Index
-- Team staff role templates
-- Offline PWA caching
-- JSON export/import
-- Migration attempt from v0.5.1 local browser data
+## Update notes
 
-## GitHub Pages Update
+Upload all files from this release to the same GitHub Pages location. Keep the folder structure intact.
 
-Upload all files and folders from this release to the same GitHub Pages location used for the prior version. Keep the folder structure intact.
+The service-worker cache changed in this release. After uploading:
+1. Open the GitHub Pages site in Chrome and refresh it.
+2. Fully close the installed Touchline PWA.
+3. Reopen it.
 
-Because v0.6 uses a new service-worker cache, the installed app may need to be fully closed and reopened. When an old screen persists, refresh the GitHub Pages site in Chrome before reopening the installed PWA.
-
-## Data Warning
-
-Touchline currently stores its data in the browser on the device. Export a JSON backup regularly, especially before clearing browser data, changing the GitHub Pages path, or testing on a second device.
-
-## Status
-
-Pre-alpha sideline testing build.
+Existing v0.6 data is migrated when available. Export a JSON backup before major browser or hosting changes.

@@ -1,43 +1,44 @@
 # Changelog
 
-## v0.6.0
+## v0.6.1
 
-### Restored and Expanded
-- Restored the Drill Library.
-- Restored the Practice Builder.
-- Restored the coach-first Practice Mode and Game Day Mode concepts.
-- Restored unified Event and AAR architecture.
+### Dashboard
+- Removed drill count.
+- Retained AARs Due.
+- Added broad roster and data inconsistency warnings.
+- Tightened roster completeness to require one complete parent/guardian record.
 
-### Players
-- Player first and last names are editable.
-- Each player can have multiple parent or guardian contacts.
-- Added editable relationship, email, and phone for every contact.
-- Added positions, coach notes, birthdate, and practical safety information.
-- Preserved imported BSSC U12 Boys B roster information.
+### Contacts
+- Merged prior roster information with recent email information instead of replacing records.
+- Added second guardians where recovered.
+- Added complete Bill Cartier and Kate Roden contact information.
 
-### Practice
-- Added themed Drill Library filtering.
-- Added full drill CRUD.
-- Added drill favorites, equipment, setup, how-to, and coaching points.
-- Added drag-and-drop Practice Builder.
-- Added custom drill durations and saved practice plans.
-- Added live master and drill timers, navigation, quick notes, and automatic practice AAR creation.
+### Drill Library
+- Expanded defaults to 25 drills, five per core category.
+- All defaults remain editable and deletable.
 
-### Games and Events
-- Added practice, game, and meeting Events.
-- Added arrival time, map link, attendance/availability, jersey suggestion, and overrides.
-- Added match clock, score, substitutions, individual playing-time tracking, one-touch events, and timestamped notes.
-- Added automatic match AAR creation.
+### Practice Builder
+- Corrected saved-practice opening.
+- Added mobile touch reordering and explicit up/down controls.
+- Retained tap-to-add and desktop drag-and-drop.
 
-### Data and Packaging
-- Added v0.5.1 migration attempt.
-- Added JSON backup and restore.
-- Added README and CHANGELOG to the release.
-- Updated the PWA cache to v0.6.0.
+### Live Modes
+- Timer ticks now update only timer elements rather than rerendering the whole screen.
+- Typing notes no longer loses focus each second.
+- Active practices and games can be resumed after navigation.
+- Starting the same active game resumes it instead of resetting it.
 
-### Known Limitations
-- Data is local to each browser/device.
-- Parent accounts, cloud synchronization, and enforceable permissions are not yet implemented.
-- Voice transcription remains a future feature.
-- Lineup field placement is simplified; substitution and playing-time tracking are functional.
-- Birthday reminders are deferred and will remain coach/staff-only.
+### Attendance and AARs
+- Replaced pregame dropdowns with a Yes / No / Unknown table.
+- Ending a practice or game creates an incomplete AAR.
+- Incomplete AARs appear in AARs Due until marked complete.
+
+### Staff
+- Staff may be selected from team adults or entered manually.
+- Role templates prefill editable permission checkboxes.
+- Staff cards show permission summaries.
+
+### Known limitations
+- Local-only storage remains device/browser specific.
+- Cloud invitations, QR team membership, and enforceable multi-user permissions are not yet implemented.
+- Native voice transcription remains deferred.
